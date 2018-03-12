@@ -154,14 +154,24 @@ var weatherFunc = function () {
         };
         for (var j = 0; j < week.length; j++){
             var dailyTemp = week[j].temp / week[j].count;
-            var cloudAvg = week[j].cloud / week[j].count
+            var cloudAvg = week[j].cloud / week[j].count;
             if (week[j].present) {
                 console.log(week[j].date);
                 console.log(Math.floor(dailyTemp));
-                if (cloudAvg > 70) {
-                    console.log("It is very cloudy")
+                // console.log(week[j].cloud + "/" + week[j].count);
+                // console.log(cloudAvg);
+                if (cloudAvg > 80) {
+                    console.log("Very cloudy")
+                    console.log("----------")
+                } else if (cloudAvg > 60) {
+                    console.log("Moderately cloudy")
+                    console.log("----------")
                 } else if (cloudAvg > 40) {
-                    console.log("It is moderately cloudly")
+                    console.log("Mildly cloudy")
+                    console.log("----------")
+                } else if (cloudAvg > 20) {
+                    console.log("Scattered Clouds")
+                    console.log("----------")
                 } else {
                     console.log("Clear skies")
                     console.log("----------")
