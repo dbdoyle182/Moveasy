@@ -8,6 +8,25 @@ var config = {
   messagingSenderId: "760163561059"
 };
 firebase.initializeApp(config);
+var database = firebase.database();
+var user = null;
+firebase.auth().onAuthStateChanged(function(firebUser) {
+  console.log("authstatechanged");
+  user = firebUser;
+
+  if (user) {
+    //updateDOM to reflect new login state
+    //hide sign in button
+    //hide sign up button
+    //show sign out button
+    //show favorite buttons
+    //hide pref form
+    $(".isSignedIn").html("<p>you are signed in</p>");
+  } else {
+    //updateDOM to reflect new login state
+    $(".isSignedIn").html("<p>you are signed out</p>");
+  }
+});
 
 //Create a new account by passing the new user's email address and password
 //to createUserWithEmailAndPassword:
@@ -31,12 +50,12 @@ $(".signUp").click(function(event) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(function() {
-      var uID = firebase.auth().currentUser.uid;
+    .then(function(user) {
+      var uid = user.uid;
 
       firebase
         .database()
-        .ref("/" + uID)
+        .ref("/" + uid)
         .set(userInfo);
       console.log(userInfo);
     })
@@ -55,8 +74,8 @@ $(".signUp").click(function(event) {
       }
       console.log(errorCode);
     });
-  $("#inputEmail").remove();
-  $("#inputPassword").remove();
+  $("#inputEmail").remove(); //move up into onauthstatechange
+  $("#inputPassword").remove(); //move up into onauthstatechange
 });
 
 //When a user signs in to your app, pass the user's email address and password
@@ -70,24 +89,20 @@ $(".signIn").click(function(event) {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(function() {
-      var user = firebase.auth().currentUser;
+    .then(function(user) {
+      var uid = user.uid;
 
-      if (user != null) {
-        var uid = user.uid;
-
-        var database = firebase.database();
-        database
-          .ref()
-          .child("/" + uid)
-          .once("value")
-          .then(function(snapshot) {
-            var userInfo = snapshot.val();
-            // ...
-            console.log(userInfo);
-            console.log(user);
-          });
-      }
+      var database = firebase.database();
+      database
+        .ref()
+        .child("/" + uid)
+        .once("value")
+        .then(function(snapshot) {
+          var userInfo = snapshot.val();
+          // ...
+          console.log(userInfo);
+          console.log(user);
+        });
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -111,13 +126,12 @@ $(".signIn").click(function(event) {
 //sign-out click function
 $(".signOut").click(function(event) {
   event.preventDefault();
-  firebase
-    .auth()
-    .signOut()
-    .then(function() {
+  console.log("hello");
+  firebase.auth().signOut();
+  /* .then(function() {
       // Sign-out successful.
     })
     .catch(function(error) {
       // An error happened.
-    });
+    });*/
 });
