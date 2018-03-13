@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Test comment -->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Foundation CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>MoveAssist</title>
     <style>
@@ -23,21 +21,22 @@
         }
     </style>
 </head>
+
 <body>
     <div class="row column">
         <div class="off-canvas-wrapper">
             <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
-            
+
                 <!-- Close button -->
                 <button class="button" aria-label="Close menu" type="button" data-close>
-                <span aria-hidden="true">Close</span>
+                    <span aria-hidden="true">Close</span>
                 </button>
                 <div class="cell user-signed-in">
-                    You're signed in.
+
                 </div>
-            
+
                 <!-- Menu -->
-                <form>
+                <form id="pref-form">
                     <div class="grid-container">
                         <div class="grid-x grid-padding-x">
                             <div class="cell">
@@ -46,25 +45,25 @@
                             <div class="cell">
                                 <h1>Personal Preferences</h1>
                             </div>
-                            
+
                             <div class="cell">
                                 <label>Job Info
-                                <input type="text" id="job-input" placeholder="What indsutry are you in?">
+                                    <input type="text" id="job-input" placeholder="What indsutry are you in?">
                                 </label>
                             </div>
                             <div class="cell">
                                 <label>Weather
-                                <input type="text" id="weather-input" placeholder="What climate do you like?">
+                                    <input type="text" id="weather-input" placeholder="What climate do you like?">
                                 </label>
                             </div>
                             <div class="cell">
                                 <label>Housing
-                                <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
+                                    <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
                                 </label>
                             </div>
                             <div class="cell">
                                 <label>City Size
-                                <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
+                                    <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
                                 </label>
                             </div>
                             <div class="cell">
@@ -74,14 +73,14 @@
                         </div>
                     </div>
                 </form>
-                
+
                 <hr>
                 <div class="grid-container">
                     <form>
                         <div class="cell">
                             <h1>City Search</h1>
                         </div>
-                        
+
                         <div class="grid-x">
                             <div class="cell small-9">
                                 <label>City Name
@@ -154,8 +153,14 @@
                             <div class="cell">
                                 <h2>Trending Cities</h2>
                                 <p>
-                                    <span id="rec1">City1</span>, <span id="rec2">City2</span>, <span id="rec3">City4</span>, <span id="rec5">City5</span>,
-                                    <span id="rec6">City6</span>, <span id="rec7">City7</span>, <span id="rec8">City8</span>, <span id="rec9">City9</span>
+                                    <span id="rec1">City1</span>,
+                                    <span id="rec2">City2</span>,
+                                    <span id="rec3">City4</span>,
+                                    <span id="rec5">City5</span>,
+                                    <span id="rec6">City6</span>,
+                                    <span id="rec7">City7</span>,
+                                    <span id="rec8">City8</span>,
+                                    <span id="rec9">City9</span>
                                 </p>
                                 <h2>Your Saved Favorite Cities</h2>
                             </div>
@@ -179,30 +184,40 @@
                 </div>
             </div>
             <!-- off canvas (menu with inputs) -->
-            
+
             <!-- Start of page content -->
             <div class="off-canvas-content" data-off-canvas-content>
                 <div class="grid-container fluid">
                     <div class="grid-x grid-margin-x">
                         <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
-                        
+
                         <div class="cell">
                             <div class="row">
                                 <div class="columns">
                                     <ul class="tabs" data-tabs id="city-tabs">
-                                        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">City1</a></li>
-                                        <li class="tabs-title cityTitle"><a href="#panel2">City2</a></li>
-                                        <li class="tabs-title cityTitle"><a href="#panel3">City3</a></li>
-                                        <li class="tabs-title cityTitle"><a href="#panel4">City4</a></li>
-                                        <li class="tabs-title cityTitle"><a href="#panel5">City5</a></li>
+                                        <li class="tabs-title is-active">
+                                            <a href="#panel1" aria-selected="true">City1</a>
+                                        </li>
+                                        <li class="tabs-title cityTitle">
+                                            <a href="#panel2">City2</a>
+                                        </li>
+                                        <li class="tabs-title cityTitle">
+                                            <a href="#panel3">City3</a>
+                                        </li>
+                                        <li class="tabs-title cityTitle">
+                                            <a href="#panel4">City4</a>
+                                        </li>
+                                        <li class="tabs-title cityTitle">
+                                            <a href="#panel5">City5</a>
+                                        </li>
                                     </ul>
-                                
+
                                     <div class="tabs-content" data-tabs-content="city-tabs">
-                                    
+
                                         <div class="tabs-panel is-active" id="panel1">
                                             <div class="grid-container">
                                                 <div class="grid-x grid-padding-x small-up-1 medium-up-2">
-                                                    
+
                                                     <div class="cell">
                                                         <div class="card">
                                                             <div class="card-section">
@@ -231,7 +246,9 @@
                                                         <div class="card">
                                                             <div class="card-section">
                                                                 <h4>This is a card.</h4>
-                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                                <p>It has an easy to override visual style, and is appropriately
+                                                                    subdued.
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -240,25 +257,29 @@
                                                         <div class="card">
                                                             <div class="card-section">
                                                                 <h4>This is a card.</h4>
-                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                                <p>It has an easy to override visual style, and is appropriately
+                                                                    subdued.
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="cell">
                                                         <div class="card">
                                                             <div class="card-section">
                                                                 <h4>This is a card.</h4>
-                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                                <p>It has an easy to override visual style, and is appropriately
+                                                                    subdued.
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+
                                                 </div>
                                             </div>
                                         </div>
-                                    
-                                            
+
+
                                         <div class="tabs-panel" id="panel2">
                                             <p>Two</p>
                                         </div>
@@ -282,23 +303,18 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Log-in/Sign-in popups -->
                 <div class="reveal" id="modal2" data-reveal>
                     <form class="form-signin">
-                            <h2 class="form-signin-heading">Please Sign In</h2>
-                            <label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
-                            <button class="button expanded signIn" type="submit">Sign In</button>
+                        <h2 class="form-signin-heading">Please Sign In</h2>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" id="signInEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
+                        <button class="button expanded signIn" type="submit">Sign In</button>
                     </form>
-                    
+
                     <button class="close-button" data-close aria-label="Close modal" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -306,43 +322,38 @@
 
                 <div class="reveal" id="modal1" data-reveal>
                     <form class="form-signup">
-                            <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
-                            <label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <h1>Personal Preferences</h1>
-                            </div>
-                            
-                            <div class="cell">
-                                <label>Job Info
-                                <input type="text" id="job-input" placeholder="What indsutry are you in?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>Weather
-                                <input type="text" id="weather-input" placeholder="What climate do you like?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>Housing
-                                <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>City Size
-                                <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
-                                </label>
-                            </div>
-                            <button class="button expanded signUp" type="submit">Sign Up</button>
+                        <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" id="signUpEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="signUpPassword" class="sr-only">Password</label>
+                        <input type="password" id="signUpPassword" class="form-control" placeholder="Password" required>
+                        <div class="cell">
+                            <h1>Personal Preferences</h1>
+                        </div>
+
+                        <div class="cell">
+                            <label>Job Info
+                                <input type="text" id="job-input-SU" placeholder="What indsutry are you in?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Weather
+                                <input type="text" id="weather-input-SU" placeholder="What climate do you like?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Housing
+                                <input type="text" id="housing-input-SU" placeholder="What are you looking to pay each month?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>City Size
+                                <input type="text" id="size-input-SU" placeholder="Are you a small town person or a city slicker?">
+                            </label>
+                        </div>
+                        <button class="button expanded signUp" type="submit">Sign Up</button>
                     </form>
-                    
+
                     <button class="close-button" data-close aria-label="Close modal" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -357,26 +368,29 @@
     <!-- foundation js cdn -->
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js"></script>
 
-    <script> $(document).foundation(); </script>
+    <script>
+        $(document).foundation();
+    </script>
 
     <!-- Links to moment, google maps and local weather, education and maps js -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"></script>
 
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    
+
     <script src="assets/javascript/weather.js"></script>
-    
+
     <script src="assets/javascript/education.js"></script>
 
     <script src="assets/javascript/map.js"></script>
 
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/fav cities.js"></script>
-    <script src="asset/javascript/restaurant.js"> </script>
+    <script src="asset/javascript/restaurant.js">
+    </script>
     <script src="assets/javascript/statePopulation.js"></script>
-  </body>
+</body>
 
 </html>
