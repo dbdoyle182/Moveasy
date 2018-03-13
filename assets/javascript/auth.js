@@ -10,26 +10,32 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 var user = null;
-firebase.auth().onAuthStateChanged(function(firebUser) {
+firebase.auth().onAuthStateChanged(function (firebUser) {
   console.log("authstatechanged");
   user = firebUser;
 
   if (user) {
+    $("#login-button").hide();
+    $("#signup-button").hide();
+    $("#pref-form").hide();
     //hide sign in button
     //hide sign up form
     //hide sign up button
     //show sign out button
     //show favorite buttons
     //hide non sign in pref form
-    $(".isSignedIn").html("<p>you are signed in</p>");
+    $(".user-signed-in").html("<p>you are signed in</p>");
   } else {
+    $("#login-button").show();
+    $("#signup-button").show();
+    $("#pref-form").show();
     //show sign in button
     //show sign up form
     //showsign up button
     //hide sign out button
     //hide favorite buttons
     //show non sign in pref form
-    $(".isSignedIn").html("<p>you are signed out</p>");
+    $(".user-signed-in").html("<p>you are signed out</p>");
   }
 });
 
@@ -38,24 +44,25 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
 
 //If the new account was created, the user is signed in automatically.
 //Users remain signed in, even when browser closes.
-$(".signUp").click(function(event) {
+$(".signUp").click(function (event) {
   event.preventDefault();
 
-  email = $("#inputEmail").val();
-  password = $("#inputPassword").val();
-
+  var email = $("#signUpEmail").val().trim();
+  console.log(email)
+  var password = $("#signUpPassword").val();
+  console.log(password)
   var userInfo = {
     // below variables will eventually be input values
-    industry: $("#job-input").val(),
-    climate: $("#weather-input").val(),
-    housing: $("#housing-input").val(),
-    demog: $("#size-input").val()
+    industry: $("#job-input-SU").val(),
+    climate: $("#weather-input-SU").val(),
+    housing: $("#housing-input-SU").val(),
+    demog: $("#size-input-SU").val()
   };
 
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(function(user) {
+    .then(function (user) {
       var uid = user.uid;
 
       firebase
@@ -64,7 +71,7 @@ $(".signUp").click(function(event) {
         .set(userInfo);
       console.log(userInfo);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -78,23 +85,25 @@ $(".signUp").click(function(event) {
         alert(errorMessage);
       }
       console.log(errorCode);
+      console.log(errorMessage);
     });
-  $("#inputEmail").remove(); //move up into onauthstatechange
-  $("#inputPassword").remove(); //move up into onauthstatechange
+  $(".reveal").hide();
+  $(".reveal-overlay").hide();
 });
 
 //When a user signs in to your app, pass the user's email address and password
 //to signInWithEmailAndPassword:
-$(".signIn").click(function(event) {
+$(".signIn").click(function (event) {
   event.preventDefault();
 
-  email = $("#inputEmail").val();
-  password = $("#inputPassword").val();
+  var email = $("#signInEmail").val();
+  var password = $("#signInPassword").val();
+
 
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(function(user) {
+    .then(function (user) {
       var uid = user.uid;
 
       var database = firebase.database();
@@ -102,14 +111,14 @@ $(".signIn").click(function(event) {
         .ref()
         .child("/" + uid)
         .once("value")
-        .then(function(snapshot) {
+        .then(function (snapshot) {
           var userInfo = snapshot.val();
           // ...
           console.log(userInfo);
           console.log(user);
         });
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -124,15 +133,20 @@ $(".signIn").click(function(event) {
       }
       console.log(errorCode);
     });
-  $("#inputEmail").remove();
-  $("#inputPassword").remove();
+  $(".reveal").hide();
+  $(".reveal-overlay").hide();
 });
 
 //sign-out click function
-$(".signOut").click(function(event) {
+$(".signOut").click(function (event) {
   event.preventDefault();
   console.log("hello");
   firebase.auth().signOut();
+  $("#login-button").show();
+  $("#signup-button").show();
+  $("#pref-form").show();
+  $(".reveal").hide();
+  $(".reveal-overlay").hide();
   /* .then(function() {
       // Sign-out successful.
     })
