@@ -9,18 +9,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//When a new user signs up using sign-up form,
-//complete any new account validation steps that your app requires,
-//such as verifying that the new account's password was correctly typed
-//and meets your complexity requirements.
-
 //Create a new account by passing the new user's email address and password
 //to createUserWithEmailAndPassword:
+
+//If the new account was created, the user is signed in automatically.
+//Users remain signed in, even when browser closes.
 $(".signUp").click(function(event) {
   event.preventDefault();
-
-  // $("#inputEmail").remove();
-  // $("#inputPassword").remove();
 
   email = $("#inputEmail").val();
   password = $("#inputPassword").val();
@@ -50,14 +45,20 @@ $(".signUp").click(function(event) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // ...
+      if (errorCode === "auth/email-already-in-use") {
+        alert("Email already in use.");
+      } else if (errCode === "auth/invalid-email") {
+        alert("Invalid email address.");
+      } else if (errCode === "auth/weak-password") {
+        alert("Weak password. Please pick another.");
+      } else {
+        alert(errorMessage);
+      }
+      console.log(errorCode);
     });
+  // $("#inputEmail").remove();
+  // $("#inputPassword").remove();
 });
-
-//If the new account was created, the user is signed in automatically.
-
-//The steps for signing in a user with a password are similar to
-//the steps for creating a new account. In your app's sign-in page, do the following:
 
 //When a user signs in to your app, pass the user's email address and password
 //to signInWithEmailAndPassword:
@@ -93,19 +94,31 @@ $(".signIn").click(function(event) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // ...
+      if (errorCode === "auth/wrong-password") {
+        alert("Wrong password.");
+      } else if (errCode === "auth/invalid-email") {
+        alert("Invalid password.");
+      } else if (errCode === "auth/user-not-found") {
+        alert("User not found.");
+      } else {
+        alert(errorMessage);
+      }
+      console.log(errorCode);
     });
+  // $("#inputEmail").remove();
+  // $("#inputPassword").remove();
 });
 
-/*firebase.auth().signInWithEmailAndPassword(email, password)
-.catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    if (errorCode === 'auth/wrong-password') {
-      alert('Wrong password.');
-    } else {
-      alert(errorMessage);
-    }
-    console.log(error);
-  });*/
+//sign-out click function
+$(".signOut").click(function(event) {
+  event.preventDefault();
+  firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      // Sign-out successful.
+    })
+    .catch(function(error) {
+      // An error happened.
+    });
+});
