@@ -10,6 +10,7 @@ var weatherFunc = function () {
     var sumCloud = 0;
     var week = [{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0,
@@ -17,6 +18,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0, 
@@ -24,6 +26,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0,
@@ -31,6 +34,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0,
@@ -38,6 +42,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0, 
         temp: 0,
@@ -45,6 +50,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0,
@@ -52,6 +58,7 @@ var weatherFunc = function () {
         present: false
     },{
         date: "",
+        day: "",
         count: 0,
         humidity: 0,
         temp: 0,
@@ -81,7 +88,7 @@ var weatherFunc = function () {
         var unixTime = (response.list[i]).dt
         var newDate = moment(unixTime, "X");
  
-        var convertedDOW = moment(newDate).format("dddd");
+        var convertedDOW = moment(newDate).format("ddd");
 
         var convertedDate = moment(newDate).format("MMM Do");
         var fullDate = convertedDOW + " " + convertedDate;
@@ -90,61 +97,68 @@ var weatherFunc = function () {
         // console.log("Humidity: " + response.list[i].main.humidity + "%");
         // console.log("Cloud Cover: " + response.list[i].clouds.all + "%");
         // console.log("----------------");
-        if (convertedDOW === "Monday") {
+        if (convertedDOW === "Mon") {
             week[0].count++;
             week[0].temp += response.list[i].main.temp;
             week[0].cloud += response.list[i].clouds.all;
             week[0].humidity += response.list[i].main.humidity;
             week[0].present = true;
-            week[0].date = fullDate
+            week[0].day = convertedDOW;
+            week[0].date = convertedDate;
         };
-        if (convertedDOW === "Tuesday") {
+        if (convertedDOW === "Tue") {
             week[1].count++;
             week[1].temp += response.list[i].main.temp;
             week[1].cloud += response.list[i].clouds.all;
             week[1].humidity += response.list[i].main.humidity;
             week[1].present = true;
-            week[1].date = fullDate;
+            week[1].day = convertedDOW;
+            week[1].date = convertedDate;
         };
-        if (convertedDOW === "Wednesday") {
+        if (convertedDOW === "Wed") {
             week[2].count++;
             week[2].temp += response.list[i].main.temp;
             week[2].cloud += response.list[i].clouds.all;
             week[2].humidity += response.list[i].main.humidity;
             week[2].present = true;
-            week[2].date = fullDate;
+            week[2].day = convertedDOW;
+            week[2].date = convertedDate;
         };
-        if (convertedDOW === "Thursday") { 
+        if (convertedDOW === "Thu") { 
             week[3].count++;
             week[3].temp += response.list[i].main.temp;
             week[3].cloud += response.list[i].clouds.all;
             week[3].humidity += response.list[i].main.humidity;
             week[3].present = true;
-            week[3].date = fullDate;
+            week[3].day = convertedDOW;
+            week[3].date = convertedDate;
         };
-        if (convertedDOW === "Friday") {
+        if (convertedDOW === "Fri") {
             week[4].count++;
             week[4].temp += response.list[i].main.temp;
             week[4].cloud += response.list[i].clouds.all;
             week[4].humidity += response.list[i].main.humidity;
             week[4].present = true;
-            week[4].date = fullDate;
+            week[4].day = convertedDOW;
+            week[4].date = convertedDate;
         };
-        if (convertedDOW === "Saturday") {
+        if (convertedDOW === "Sat") {
             week[5].count++;
             week[5].temp += response.list[i].main.temp;
             week[5].cloud += response.list[i].clouds.all;
             week[5].humidity += response.list[i].main.humidity;
             week[5].present = true;
-            week[5].date = fullDate;
+            week[5].day = convertedDOW;
+            week[5].date = convertedDate;
         };
-        if (convertedDOW === "Sunday") {
+        if (convertedDOW === "Sun") {
             week[6].count++;
             week[6].temp += response.list[i].main.temp;
             week[6].cloud += response.list[i].clouds.all;
             week[6].humidity += response.list[i].main.humidity;
             week[6].present = true;
-            week[6].date = fullDate;
+            week[6].day = convertedDOW;
+            week[6].date = convertedDate;
         }
         
 
@@ -158,8 +172,18 @@ var weatherFunc = function () {
             if (week[j].present) {
                 console.log(week[j].date);
                 console.log(Math.floor(dailyTemp));
-                // console.log(week[j].cloud + "/" + week[j].count);
-                // console.log(cloudAvg);
+                var dailyWeather = $("<div>");
+                dailyWeather.css({"float":"left", "width":"100px"});
+                var dayName = $("<p>");
+                dayName.css({"padding-left":"15px"});
+                var dayMonth = $("<p>")
+                dayMonth.css({"padding-left":"5px"});
+                var tempDay = $("<h4>");
+                tempDay.css({"margin":"0 25px"})
+                var skyType = $("<i>");
+                dayName.text(week[j].day);
+                dayMonth.text(week[j].date);
+                tempDay.text(Math.floor(dailyTemp));
                 if (cloudAvg > 80) {
                     console.log("Very cloudy")
                     console.log("----------")
@@ -176,9 +200,15 @@ var weatherFunc = function () {
                     console.log("Clear skies")
                     console.log("----------")
                 };
-            }
+                $("#weather-widget").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+            };
 
-        }
+        };
+
     });
 };
 $(function(){
