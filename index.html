@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Test comment -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -51,6 +53,10 @@
                                 <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
                                 </label>
                             </div>
+                            <div class="cell">
+                                <button type="button" class="button" id="prference-submit-button">Enter</button>
+                            </div>
+
                         </div>
                     </div>
                 </form>
@@ -65,13 +71,13 @@
                         <div class="grid-x">
                             <div class="cell small-9">
                                 <label>City Name
-                                    <input type="text" placeholder="City Name">
+                                    <input type="text" id="city-input" placeholder="City Name">
                                 </label>
                             </div>
 
                             <div class="cell small-3">
                                 <label>Select State
-                                    <select>
+                                    <select id="state-input">
                                         <option value="Alabama">AL</option>
                                         <option value="Alaska">AK</option>
                                         <option value="Arizona">AZ</option>
@@ -142,101 +148,171 @@
 
                         <hr>
 
-                        <div class="grid-x">
-                            <div class="cell small-5">
-                                <button type="button" class="button" id="login-button">Facebook/Google</button>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-6">
+                                <button type="button" class="button expanded" id="login-button" data-open="modal2">Sign-in</button>
                             </div>
-                            <div class="cell small-3">
-                                <button type="button" class="button" id="login-button">Log-in</button>
-                            </div>
-                            <div class="cell small-4">
-                                <button type="button" class="button" id="signup-button">Sign-Up</button>
+                            <div class="cell small-6">
+                                <button type="button" class="button expanded" id="signup-button" data-open="modal1">Sign-Up</button>
                             </div>
                         </div>
 
                     </form>
                 </div>
             </div>
+            <!-- off canvas (menu with inputs) -->
+            
+            <!-- Start of page content -->
             <div class="off-canvas-content" data-off-canvas-content>
                 <div class="grid-container fluid">
                     <div class="grid-x grid-margin-x">
                         <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
                         
                         <div class="cell">
-                                <div class="row">
-                                        <div class="columns">
-                                          <ul class="tabs" data-tabs id="example-tabs">
-                                            <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">City1</a></li>
-                                            <li class="tabs-title"><a href="#panel2">City2</a></li>
-                                            <li class="tabs-title"><a href="#panel3">City3</a></li>
-                                            <li class="tabs-title"><a href="#panel4">City4</a></li>
-                                            <li class="tabs-title"><a href="#panel5">City5</a></li>
-                                          </ul>
-                                      
-                                          <div class="tabs-content" data-tabs-content="example-tabs">
-                                            
-                                            <div class="tabs-panel is-active" id="panel1">
-                                                <div class="grid-container">
-                                                    <div class="grid-x grid-padding-x small-up-2 medium-up-2">
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a row of cards.</h4>
-                                                                    <p>This row of cards is embedded in an X-Y Block Grid.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a card.</h4>
-                                                                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a card.</h4>
-                                                                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                                                                </div>
+                            <div class="row">
+                                <div class="columns">
+                                    <ul class="tabs" data-tabs id="city-tabs">
+                                        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">City1</a></li>
+                                        <li class="tabs-title cityTitle"><a href="#panel2">City2</a></li>
+                                        <li class="tabs-title cityTitle"><a href="#panel3">City3</a></li>
+                                        <li class="tabs-title cityTitle"><a href="#panel4">City4</a></li>
+                                        <li class="tabs-title cityTitle"><a href="#panel5">City5</a></li>
+                                    </ul>
+                                
+                                    <div class="tabs-content" data-tabs-content="city-tabs">
+                                    
+                                        <div class="tabs-panel is-active" id="panel1">
+                                            <div class="grid-container">
+                                                <div class="grid-x grid-padding-x small-up-1 medium-up-2">
+                                                    
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a row of cards.</h4>
+                                                                <p>This row of cards is embedded in an X-Y Block Grid.</p>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a card.</h4>
+                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a card.</h4>
+                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a card.</h4>
+                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a card.</h4>
+                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>This is a card.</h4>
+                                                                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
                                                 </div>
-                                                </div>
                                             </div>
-                                            
-                                            <div class="tabs-panel" id="panel2">
-                                              <p>Two</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-7.jpg">
-                                            </div>
-                                            <div class="tabs-panel" id="panel3">
-                                              <p>Three</p>
-                                              <p>Check me out! I'm a super cool Tab panel with text content!</p>
-                                            </div>
-                                            <div class="tabs-panel" id="panel4">
-                                              <p>Four</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-2.jpg">
-                                            </div>
-                                            <div class="tabs-panel" id="panel5">
-                                              <p>Five</p>
-                                              <p>Check me out! I'm a super cool Tab panel with text content!</p>
-                                            </div>
-                                            <div class="tabs-panel" id="panel6">
-                                              <p>Six</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-8.jpg">
-                                            </div>
-                                          </div>
                                         </div>
-                                      </div>
+                                    
+                                            
+                                        <div class="tabs-panel" id="panel2">
+                                            <p>Two</p>
+                                        </div>
+                                        <div class="tabs-panel" id="panel3">
+                                            <p>Three</p>
+                                            <p>Check me out! I'm a super cool Tab panel with text content!</p>
+                                        </div>
+                                        <div class="tabs-panel" id="panel4">
+                                            <p>Four</p>
+                                        </div>
+                                        <div class="tabs-panel" id="panel5">
+                                            <p>Five</p>
+                                            <p>Check me out! I'm a super cool Tab panel with text content!</p>
+                                        </div>
+                                        <div class="tabs-panel" id="panel6">
+                                            <p>Six</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    
                     </div>
-                </div> 
+                </div>
+                
+                <!-- Log-in/Sign-in popups -->
+                <div class="reveal" id="modal2" data-reveal>
+                    <form class="form-signin">
+                            <h2 class="form-signin-heading">Please Sign In</h2>
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button class="button expanded" type="submit">Sign In</button>
+                    </form>
+                    
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="reveal" id="modal1" data-reveal>
+                    <form class="form-signin">
+                            <h2 class="form-signin-heading">Sign up to save preferences and city searches.</h2>
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button class="button expanded" type="submit">Sign Up</button>
+                    </form>
+                    
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
         </div>
+        <!-- off canvas wrapper -->
     </div>
+    <!-- row column -->
 
     <!-- jquery cdn -->
     <!-- foundation js cdn -->
