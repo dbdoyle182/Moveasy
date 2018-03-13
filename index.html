@@ -37,6 +37,9 @@
                 <button class="button" aria-label="Close menu" type="button" data-close>
                 <span aria-hidden="true">Close</span>
                 </button>
+                <div class="cell user-signed-in">
+                    You're signed in.
+                </div>
             
                 <!-- Menu -->
                 <form>
@@ -298,7 +301,7 @@
                                     <input type="checkbox" value="remember-me"> Remember me
                                 </label>
                             </div>
-                            <button class="button expanded" type="submit">Sign In</button>
+                            <button class="button expanded signIn" type="submit">Sign In</button>
                     </form>
                     
                     <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -307,8 +310,8 @@
                 </div>
 
                 <div class="reveal" id="modal1" data-reveal>
-                    <form class="form-signin">
-                            <h2 class="form-signin-heading">Sign up to save preferences and city searches.</h2>
+                    <form class="form-signup">
+                            <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
                             <label for="inputEmail" class="sr-only">Email address</label>
                             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                             <label for="inputPassword" class="sr-only">Password</label>
@@ -318,7 +321,31 @@
                                     <input type="checkbox" value="remember-me"> Remember me
                                 </label>
                             </div>
-                            <button class="button expanded" type="submit">Sign Up</button>
+                            <div class="cell">
+                                <h1>Personal Preferences</h1>
+                            </div>
+                            
+                            <div class="cell">
+                                <label>Job Info
+                                <input type="text" id="job-input" placeholder="What indsutry are you in?">
+                                </label>
+                            </div>
+                            <div class="cell">
+                                <label>Weather
+                                <input type="text" id="weather-input" placeholder="What climate do you like?">
+                                </label>
+                            </div>
+                            <div class="cell">
+                                <label>Housing
+                                <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
+                                </label>
+                            </div>
+                            <div class="cell">
+                                <label>City Size
+                                <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
+                                </label>
+                            </div>
+                            <button class="button expanded signUp" type="submit">Sign Up</button>
                     </form>
                     
                     <button class="close-button" data-close aria-label="Close modal" type="button">
