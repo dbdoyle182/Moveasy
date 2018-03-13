@@ -9,6 +9,9 @@
     
     <!-- Foundation CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="assets/javascript/auth.js"></script>
+    <script src="assets/javascript/fav cities.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>MoveAssist</title>
     <style>
@@ -150,6 +153,7 @@
                                     <span id="rec1">City1</span>, <span id="rec2">City2</span>, <span id="rec3">City4</span>, <span id="rec5">City5</span>,
                                     <span id="rec6">City6</span>, <span id="rec7">City7</span>, <span id="rec8">City8</span>, <span id="rec9">City9</span>
                                 </p>
+                                <h2>Your Saved Favorite Cities</h2>
                             </div>
                         </div>
 
@@ -157,10 +161,13 @@
 
                         <div class="grid-x grid-margin-x">
                             <div class="cell small-6">
-                                <button type="button" class="button expanded" id="login-button" data-open="modal2">Sign-in</button>
+                                <button type="button" class="button expanded signUp" id="login-button" data-open="modal2">Sign-in</button>
                             </div>
                             <div class="cell small-6">
-                                <button type="button" class="button expanded" id="signup-button" data-open="modal1">Sign-Up</button>
+                                <button type="button" class="button expanded signIn" id="signup-button" data-open="modal1">Sign-Up</button>
+                            </div>
+                            <div class="cell">
+                                <button type="button" class="button expanded signOut" id="signout-button" data-open="modal1">Sign-Up</button>
                             </div>
                         </div>
 
