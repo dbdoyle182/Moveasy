@@ -47,9 +47,9 @@ $(".signUp").click(function(event) {
       var errorMessage = error.message;
       if (errorCode === "auth/email-already-in-use") {
         alert("Email already in use.");
-      } else if (errCode === "auth/invalid-email") {
+      } else if (errorCode === "auth/invalid-email") {
         alert("Invalid email address.");
-      } else if (errCode === "auth/weak-password") {
+      } else if (errorCode === "auth/weak-password") {
         alert("Weak password. Please pick another.");
       } else {
         alert(errorMessage);
@@ -96,9 +96,9 @@ $(".signIn").click(function(event) {
       var errorMessage = error.message;
       if (errorCode === "auth/wrong-password") {
         alert("Wrong password.");
-      } else if (errCode === "auth/invalid-email") {
+      } else if (errorCode === "auth/invalid-email") {
         alert("Invalid password.");
-      } else if (errCode === "auth/user-not-found") {
+      } else if (errorCode === "auth/user-not-found") {
         alert("User not found.");
       } else {
         alert(errorMessage);
