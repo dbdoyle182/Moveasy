@@ -39,7 +39,6 @@ $(".signUp").click(function(event) {
         .ref("/" + uID)
         .set(userInfo);
       console.log(userInfo);
-      console.log(user);
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -56,8 +55,8 @@ $(".signUp").click(function(event) {
       }
       console.log(errorCode);
     });
-  // $("#inputEmail").remove();
-  // $("#inputPassword").remove();
+  $("#inputEmail").remove();
+  $("#inputPassword").remove();
 });
 
 //When a user signs in to your app, pass the user's email address and password
@@ -105,8 +104,8 @@ $(".signIn").click(function(event) {
       }
       console.log(errorCode);
     });
-  // $("#inputEmail").remove();
-  // $("#inputPassword").remove();
+  $("#inputEmail").remove();
+  $("#inputPassword").remove();
 });
 
 //sign-out click function
