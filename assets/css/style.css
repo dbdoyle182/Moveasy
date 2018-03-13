@@ -1,0 +1,22 @@
+.position-left {
+    top:0;
+    left:0;
+    width: 400px;
+    height: 100%;
+    -webkit-transform: translateX(-400px);
+    transform: translateX(-400px);
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+body {
+    background-image:url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
+    background-size: cover;
+
+}
