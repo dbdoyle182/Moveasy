@@ -1,8 +1,8 @@
 var weatherFunc = function () {
     // var city = $("#city-input").val().trim();
     // var state = $("#state-input").val().trim();
-    var city = "Charlotte";
-    var state = "NC";
+    var city = "Rochester";
+    var state = "NY";
     var apiKey = "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + state + "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     $.ajax({
