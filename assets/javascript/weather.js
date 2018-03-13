@@ -1,8 +1,8 @@
 var weatherFunc = function () {
-    // var city = $("#city-value").val().trim();
-    // var state = $("#state-value").val().trim();
-    var city = "Sylva";
-    var state = "NC";
+    var city = $("#city-input").val().trim();
+    var state = $("#state-input").val().trim();
+    // var city = "Charlotte";
+    // var state = "NC";
     var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b";
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",US" + apiKey + "&units=imperial";
     var sumTemp = 0;
@@ -180,8 +180,8 @@ var weatherFunc = function () {
             var rainAvg = week[j].rain / week[j].count;
             var snowAvg = week[j].snow / week[j].count;
             if (week[j].count === 8) {
-                console.log(week[j].date);
-                console.log(Math.floor(dailyTemp));
+                // console.log(week[j].date);
+                // console.log(Math.floor(dailyTemp));
                 var dailyWeather = $("<div>");
                 dailyWeather.css({"float":"left", "width":"100px"});
                 var dayName = $("<p>");
@@ -195,40 +195,40 @@ var weatherFunc = function () {
                 dayMonth.text(week[j].date);
                 tempDay.text(Math.floor(dailyTemp));
                 if (cloudAvg > 80 && snowAvg < 1 && rainAvg < 1) {
-                    console.log("Very cloudy")
-                    console.log("----------")
+                    // console.log("Very cloudy")
+                    // console.log("----------")
                     skyType.attr("src", "./assets/images/003-cloudy.png")
                 }; 
                 if (cloudAvg > 60 && snowAvg < 1 && rainAvg < 1) {
-                    console.log("Moderately cloudy")
-                    console.log("----------")
+                    // console.log("Moderately cloudy")
+                    // console.log("----------")
                     skyType.attr("src", "./assets/images/004-cloud-1.png")
                 };
                 if (cloudAvg > 20 && snowAvg < 1 && rainAvg < 1) {
-                    console.log("Scattered Clouds")
-                    console.log("----------")
+                    // console.log("Scattered Clouds")
+                    // console.log("----------")
                     skyType.attr("src", "./assets/images/006-cloud.png")
                 };
                 if (cloudAvg < 20 && snowAvg < 1 && rainAvg < 1) {
-                    console.log("Clear skies")
-                    console.log("----------")
+                    // console.log("Clear skies")
+                    // console.log("----------")
                     skyType.attr("src", "./assets/images/007-sun.png")
                 };
-                if (snowAvg > 1) {
-                    console.log("Snow incoming");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/001-weather.png")
-                };
-                if (rainAvg > 1) {
-                    console.log("Rain incoming");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/005-rain.png")
-                };
-                if (rainAvg > 3) {
-                    console.log("Heavy Rain");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/002-lightning.png")
-                }
+                // if (snowAvg > 1) {
+                //     console.log("Snow incoming");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/001-weather.png")
+                // };
+                // if (rainAvg > 1) {
+                //     console.log("Rain incoming");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/005-rain.png")
+                // };
+                // if (rainAvg > 3) {
+                //     console.log("Heavy Rain");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/002-lightning.png")
+                // }
 
                 $("#weather-widget").append(dailyWeather);
                 dailyWeather.append(dayName);
@@ -241,6 +241,5 @@ var weatherFunc = function () {
 
     });
 };
-$(function(){
-    weatherFunc();
-})
+
+$(document).on("click", "submit-button", weatherFunc);
