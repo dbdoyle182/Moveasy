@@ -1,8 +1,8 @@
 var weatherFunc = function () {
-    var city = $("#city-input").val().trim();
-    var state = $("#state-input").val().trim();
-    // var city = "Charlotte";
-    // var state = "NC";
+    // var city = $("#city-input").val().trim();
+    // var state = $("#state-input").val().trim();
+    var city = "Charlotte";
+    var state = "NC";
     var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b";
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",US" + apiKey + "&units=imperial";
     var sumTemp = 0;
@@ -241,5 +241,7 @@ var weatherFunc = function () {
 
     });
 };
-
+$(function(){
+    weatherFunc();
+})
 $(document).on("click", "submit-button", weatherFunc);
