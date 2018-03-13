@@ -1,7 +1,7 @@
 var weatherFunc = function () {
     // var city = $("#city-value").val().trim();
     // var state = $("#state-value").val().trim();
-    var city = "Sylva";
+    var city = "Charlotte";
     var state = "NC";
     var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b";
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",US" + apiKey + "&units=imperial";
@@ -214,21 +214,21 @@ var weatherFunc = function () {
                     console.log("----------")
                     skyType.attr("src", "./assets/images/007-sun.png")
                 };
-                if (snowAvg > 1) {
-                    console.log("Snow incoming");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/001-weather.png")
-                };
-                if (rainAvg > 1) {
-                    console.log("Rain incoming");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/005-rain.png")
-                };
-                if (rainAvg > 3) {
-                    console.log("Heavy Rain");
-                    console.log("----------");
-                    skyType.attr("src", "./assets/images/002-lightning.png")
-                }
+                // if (snowAvg > 1) {
+                //     console.log("Snow incoming");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/001-weather.png")
+                // };
+                // if (rainAvg > 1) {
+                //     console.log("Rain incoming");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/005-rain.png")
+                // };
+                // if (rainAvg > 3) {
+                //     console.log("Heavy Rain");
+                //     console.log("----------");
+                //     skyType.attr("src", "./assets/images/002-lightning.png")
+                // }
 
                 $("#weather-widget").append(dailyWeather);
                 dailyWeather.append(dayName);
