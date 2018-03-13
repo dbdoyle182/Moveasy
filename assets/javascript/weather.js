@@ -194,15 +194,16 @@ var weatherFunc = function () {
                     var dailyWeather = $("<div>");
                     dailyWeather.css({"float":"left", "width":"100px"});
                     var dayName = $("<p>");
-                    dayName.css({"padding-left":"15px"});
+                    dayName.css({"text-align":"center"});
                     var dayMonth = $("<p>")
-                    dayMonth.css({"padding-left":"5px"})
+                    dayMonth.css({"text-align":"center"})
                     var tempDay = $("<h4>");
-                    tempDay.css({"margin":"0 25px"})
+                    tempDay.css({"text-align":"center"})
                     var skyType = $("<img>");
+                    skyType.css({"text-align":"center"})
                     dayName.text(week[j].day);
                     dayMonth.text(week[j].date);
-                    tempDay.text(Math.floor(dailyTemp));
+                    tempDay.text(Math.floor(dailyTemp) + "°");
                     if (cloudAvg > 80 && snowAvg < 1 && rainAvg < 1) {
                         // console.log("Very cloudy")
                         // console.log("----------")
@@ -264,7 +265,7 @@ var weatherFunc = function () {
             };
             var todayFore = firstLet(response.weather[0].description);
             var currentDay = $("<div>");
-            currentDay.css({"width":"130px","float":"left"})
+            currentDay.css({"width":"130px","float":"left","text-align":"center"})
             var currentDate = $("<h3>");
             currentDate.text(todayDate);
             var currentMonth = $("<h3>");
