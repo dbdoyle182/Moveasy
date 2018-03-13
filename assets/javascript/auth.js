@@ -15,15 +15,20 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
   user = firebUser;
 
   if (user) {
-    //updateDOM to reflect new login state
     //hide sign in button
+    //hide sign up form
     //hide sign up button
     //show sign out button
     //show favorite buttons
-    //hide pref form
+    //hide non sign in pref form
     $(".isSignedIn").html("<p>you are signed in</p>");
   } else {
-    //updateDOM to reflect new login state
+    //show sign in button
+    //show sign up form
+    //showsign up button
+    //hide sign out button
+    //hide favorite buttons
+    //show non sign in pref form
     $(".isSignedIn").html("<p>you are signed out</p>");
   }
 });
@@ -41,10 +46,10 @@ $(".signUp").click(function(event) {
 
   var userInfo = {
     // below variables will eventually be input values
-    industry: "marketing",
-    climate: "mild",
-    housing: "apartment",
-    demog: "hispanic"
+    industry: $("#job-input").val(),
+    climate: $("#weather-input").val(),
+    housing: $("#housing-input").val(),
+    demog: $("#size-input").val()
   };
 
   firebase
