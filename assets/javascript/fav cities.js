@@ -23,5 +23,7 @@ $(".favCity").click(function(event) {
     favs.push(cityName);
 
     myCitiesRef.set(favs);
+
+    //print whatever we need to print
   });
 });
