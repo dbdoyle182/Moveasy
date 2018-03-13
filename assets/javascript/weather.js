@@ -254,7 +254,32 @@ var weatherFunc = function () {
             url: queryURL2,
             method: "GET"
         }).then(function(response){
-
+            var imgLink = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+            var todayDate = moment().format("ddd")
+            var todayMonth = moment().format("MMM Do")
+            var todayTemp = Math.floor(response.main.temp)
+            var firstLet = function (string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            };
+            var todayFore = firstLet(response.weather[0].description);
+            var currentDay = $("<div>");
+            currentDay.css({"width":"130px","float":"left"})
+            var currentDate = $("<h3>");
+            currentDate.text(todayDate);
+            var currentMonth = $("<h3>");
+            currentMonth.text(todayMonth);
+            var currentImg = $("<img>");
+            currentImg.attr("src", imgLink)
+            var currentTemp = $("<h4>");
+            currentTemp.text(todayTemp);
+            var currentFore = $("<p>");
+            currentFore.text(todayFore);
+            $("#weather-widget").prepend(currentDay);
+            currentDay.append(currentDate);
+            currentDay.append(currentMonth);
+            currentDay.append(currentImg);
+            currentDay.append(currentTemp);
+            currentDay.append(currentFore);
         })
     });
 };
