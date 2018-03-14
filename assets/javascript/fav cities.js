@@ -1,8 +1,8 @@
-$(".favCity").click(function(event) {
+$("#submit-button").click(function(event) {
   event.preventDefault();
 
   if (!user) {
-    alert("must be logged in to favorite a city");
+    console.log("not logged in");
     return;
   }
 
@@ -19,8 +19,11 @@ $(".favCity").click(function(event) {
       favs = [];
     }
 
-    var cityName = $(".cityTitle").text();
+    var cityName = $("#city-input").val();
+    +", " + $("#state-input").val();
+    console.log(cityName);
     favs.push(cityName);
+    console.log(favs);
 
     myCitiesRef.set(favs);
 
