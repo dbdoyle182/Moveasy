@@ -1,16 +1,34 @@
 // Object array for trending cities
 var preloadArr = [{
     city: "Boston",
-    state: "Massachusetts"
+    state: "MA"
 },{
     city: "Chicago",
-    state: "Illinois"
+    state: "IL"
 },{
-    city: "Orlando",
-    state: "Florida"
+    city: "Seattle",
+    state: "WA"
 },{
-    city: "Sacramento",
-    state: "California"
+    city: "Boulder",
+    state: "CO"
+},{
+    city: "Charlotte",
+    state: "NC"
+},{
+    city: "New York",
+    state: "NY"
+},{
+    city: "Cincinnati",
+    state: "OH"
+},{
+    city: "Miami",
+    state: "FL"
+},{
+    city: "Nashville",
+    state: "TN"
+},{
+    city: "Salt Lake City",
+    state: "UT"
 }];
 // Determines which random city to load upon page open
 var randomCity = Math.floor(Math.random() * (preloadArr.length))
