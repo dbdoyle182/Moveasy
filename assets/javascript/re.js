@@ -94,11 +94,13 @@ var realEstate = function () {
             if (house.ListingType === "Sale") {
                 // console.log(house.ListPrice + "$");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ <br>" + "Listed by: " + house.ListOfficeName + "</p>")
-            } else if (house.ListingType === "Rent") {
+            }
+            if (house.ListingType === "Rental") {
                 // console.log(house.ListPrice + "$ per month");
-                houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ per month <br>" + "Listed by: " + house.ListOfficeName + "</p>")
-            } else {
-                houseInfo = $("<p>" + house.Address + "<br>" + house.ListPrice + "$<br>" + "Listed by: " + house.ListOfficeName + "</p>")
+                houseInfo = $("<p>" + house.Address + "<br>" + house.ListingType + "<br>" + house.ListPrice + "$ per month <br>" + "Listed by: " + house.ListOfficeName + "</p>")
+            }
+            if (house.ListingType != "Rental" && house.ListingType != "Sale") {
+                houseInfo = $("<p>" + house.Address + "<br> For: Sale <br>" + house.ListPrice + "$<br>" + "Listed by: " + house.ListOfficeName + "</p>")
             }
             // console.log("Listed by: " + house.ListOfficeName);
             (houseDiv).append(houseInfo);
