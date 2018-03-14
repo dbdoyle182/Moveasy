@@ -59,7 +59,7 @@ function showCityBtn() {
   }
 }
 
-//click function to generate new button based on user input
+//click function to generate new fav city buttons based on user input
 $("#submit-button").click(function (event) {
   event.preventDefault();
   var favCitiesSI = [];
@@ -78,6 +78,8 @@ $("#submit-button").click(function (event) {
         $("#state-input").val() +
         "</button>"
       );
+      favCityBtnSI.attr("data-city", submission);
+      favCityBtnSI.attr("data-state", $("#state-input").val());
       var favCityBtnSI2 = favCityBtnSI.clone();
       $(".fav-cities-si").append(favCityBtnSI);
       $("#city-buttons-si").append(favCityBtnSI2);
