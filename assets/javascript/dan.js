@@ -557,8 +557,9 @@ var statePopulation = function(stateAbbreviation) {
         console.log(state);
         console.log(population);
 
-        $("#name-of-city").text()
-        $("#pop").text(population)
+        // $("#name-of-city").text()
+        $("#pop").text(population);
+        //to add: conditions for displaying city size icon.
         
     });
 };
