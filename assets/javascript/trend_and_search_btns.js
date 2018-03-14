@@ -1,15 +1,46 @@
 var trendCities = [
-  "Seattle, WA",
-  "Boston, MA",
-  "Boulder, CO",
-  "Charlotte, NC",
-  "New York, NY",
-  "Chicago, IL",
-  "Cincinnati, OH",
-  "Miami, FL",
-  "Nashville, TN",
-  "Salt Lake City, UT"
+  {
+    city: "Boston",
+    state: "MA"
+  },
+  {
+    city: "Chicago",
+    state: "IL"
+  },
+  {
+    city: "Seattle",
+    state: "WA"
+  },
+  {
+    city: "Boulder",
+    state: "CO"
+  },
+  {
+    city: "Charlotte",
+    state: "NC"
+  },
+  {
+    city: "New York",
+    state: "NY"
+  },
+  {
+    city: "Cincinnati",
+    state: "OH"
+  },
+  {
+    city: "Miami",
+    state: "FL"
+  },
+  {
+    city: "Nashville",
+    state: "TN"
+  },
+  {
+    city: "Salt Lake City",
+    state: "UT"
+  }
 ];
+
 var favCities = [];
 
 //function to render city buttons
@@ -19,10 +50,13 @@ function showCityBtn() {
   for (i = 0; i < trendCities.length; i++) {
     var trendCityBtn = $(
       "<button type='button' class='hollow button' href='#'>" +
-        trendCities[i] +
+        trendCities[i].city +
+        ", " +
+        trendCities[i].state +
         "</button>"
     );
-    trendCityBtn.attr("data-name", trendCities[i]);
+    trendCityBtn.attr("data-city", trendCities[i].city);
+    trendCityBtn.attr("data-state", trendCities[i].state);
     $(".trending-cities").append(trendCityBtn);
   }
 }
@@ -39,17 +73,19 @@ $("#submit-button").click(function(event) {
 
   for (i = 0; i < favCities.length; i++) {
     var favCityBtn = $(
-      "<button type='button' class='hollow button' href='#'>" +
+      "<button type='button' class='hollow button favBtn' href='#'>" +
         favCities[i] +
         ", " +
         $("#state-input").val() +
         "</button>"
     );
     favCityBtn.attr("data-name", favCities[i] + ", " + $("#state-input").val());
+
+    var favCityBtn2 = favCityBtn.clone();
   }
-  $(".fav-cities").append(favCityBtn);
-  $("#city-buttons").append(favCityBtn);
-  $("#city-input").val(null);
+  $(".fav-cities-notsi").append(favCityBtn);
+  $("#city-buttons-nsi").append(favCityBtn2);
+  //$("#city-input").val(null);
 });
 
 showCityBtn();
