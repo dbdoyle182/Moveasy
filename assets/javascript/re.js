@@ -3,9 +3,8 @@ var realEstate = function () {
     var firstLet = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
-    var city = firstLet($("#city-input").val().trim());
+    city = firstLet($("#city-input").val().trim());
     console.log(city);
-    var state = $("#state-input").val().trim();
     function abbrState(input, to){
     
         var states = [
