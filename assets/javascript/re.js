@@ -94,10 +94,12 @@ var realEstate = function () {
             if (house.ListingType === "Sale") {
                 // console.log(house.ListPrice + "$");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ <br>" + "Listed by: " + house.ListOfficeName + "</p>")
-            } else {
+            } else if (house.ListingType === "Rent") {
                 // console.log(house.ListPrice + "$ per month");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ per month <br>" + "Listed by: " + house.ListOfficeName + "</p>")
-            };
+            } else {
+                houseInfo = $("<p>" + house.Address + "<br>" + house.ListPrice + "$<br>" + "Listed by: " + house.ListOfficeName + "</p>")
+            }
             // console.log("Listed by: " + house.ListOfficeName);
             (houseDiv).append(houseInfo);
             $("#realEstateDiv").append(houseDiv);
