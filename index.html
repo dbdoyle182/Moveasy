@@ -1,127 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Test comment -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Foundation CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        jQuery.ajaxPrefilter(function(options) {
+            if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>MoveAssist</title>
+    <title>test</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+    </style>
 </head>
+
 <body>
     <div class="row column">
         <div class="off-canvas-wrapper">
             <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
-            
+
                 <!-- Close button -->
                 <button class="button" aria-label="Close menu" type="button" data-close>
-                <span aria-hidden="true">Close</span>
+                    <span aria-hidden="true">Close</span>
                 </button>
-            
+                <div class="cell user-signed-in">
+
+                </div>
+
                 <!-- Menu -->
-                <form>
-                    <div class="grid-container">
-                        <div class="grid-x grid-padding-x">
-                            <div class="cell">
-                                <img src="https://via.placeholder.com/200x200">
-                            </div>
-                            <div class="cell">
-                                <h1>Personal Preferences</h1>
-                            </div>
-                            
-                            <div class="cell">
-                                <label>Job Info
-                                <input type="text" id="job-input" placeholder="What indsutry are you in?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>Weather
-                                <input type="text" id="weather-input" placeholder="What climate do you like?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>Housing
-                                <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
-                                </label>
-                            </div>
-                            <div class="cell">
-                                <label>City Size
-                                <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
-                                </label>
-                            </div>
-                        </div>
+
+                <div class="grid-container">
+                    <div class="cell">
+                        <img src="https://via.placeholder.com/200x200">
                     </div>
-                </form>
-                
+                    <form id="pref-form">
+                        <div class="cell">
+                            <h1>Personal Preferences</h1>
+                        </div>
+
+                        <div class="cell">
+                            <label>Job Info
+                                <input type="text" id="job-input" placeholder="What indsutry are you in?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Weather
+                                <input type="text" id="weather-input" placeholder="What climate do you like?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Housing
+                                <input type="text" id="housing-input" placeholder="What are you looking to pay each month?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>City Size
+                                <input type="text" id="size-input" placeholder="Are you a small town person or a city slicker?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <button type="button" class="button" id="prference-submit-button">Enter</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
                 <hr>
                 <div class="grid-container">
                     <form>
                         <div class="cell">
                             <h1>City Search</h1>
                         </div>
-                        
+
                         <div class="grid-x">
                             <div class="cell small-9">
                                 <label>City Name
-                                    <input type="text" placeholder="City Name">
+                                    <input type="text" id="city-input" placeholder="City Name">
                                 </label>
                             </div>
 
                             <div class="cell small-3">
                                 <label>Select State
-                                    <select>
-                                        <option value="Alabama">AL</option>
-                                        <option value="Alaska">AK</option>
-                                        <option value="Arizona">AZ</option>
-                                        <option value="Arkansas">AR</option>
-                                        <option value="California">CA</option>
-                                        <option value="Colorado">CO</option>
-                                        <option value="Connecticut">CT</option>
-                                        <option value="Delaware">DE</option>
-                                        <option value="Florida">FL</option>
-                                        <option value="Georgia">GA</option>
-                                        <option value="Hawaii">HI</option>
-                                        <option value="Idaho">ID</option>
-                                        <option value="Illinois">IL</option>
-                                        <option value="Indiana">IN</option>
-                                        <option value="Iowa">IA</option>
-                                        <option value="Kansas">KS</option>
-                                        <option value="Kentucky">KY</option>
-                                        <option value="Louisiana">LA</option>
-                                        <option value="Maine">ME</option>
-                                        <option value="Maryland">MD</option>
-                                        <option value="Massachusetts">MA</option>
-                                        <option value="Michigan">MI</option>
-                                        <option value="Minnesota">MN</option>
-                                        <option value="Mississippi">MS</option>
-                                        <option value="Missouri">MO</option>
-                                        <option value="Montana">MT</option>
-                                        <option value="Nebraska">NE</option>
-                                        <option value="Nevada">NV</option>
-                                        <option value="New Hampshire">NH</option>
-                                        <option value="New Jersey">NJ</option>
-                                        <option value="New Mexico">NM</option>
-                                        <option value="New York">NY</option>
-                                        <option value="North Carolina">NC</option>
-                                        <option value="North Dakota">ND</option>
-                                        <option value="Ohio">OH</option>
-                                        <option value="Oklahoma">OK</option>
-                                        <option value="Oregon">OR</option>
-                                        <option value="Pennsylvania">PA</option>
-                                        <option value="Rhode Island">RI</option>
-                                        <option value="South Carolina">SC</option>
-                                        <option value="South Dakota">SD</option>
-                                        <option value="Tennessee">TN</option>
-                                        <option value="Texas">TX</option>
-                                        <option value="Utah">UT</option>
-                                        <option value="Vermont">VT</option>
-                                        <option value="Virginia">VA</option>
-                                        <option value="Washington">WA</option>
-                                        <option value="West Virginia">WV</option>
-                                        <option value="Wisconsin">WI</option>
-                                        <option value="Wyoming">WY</option>
+                                    <select id="state-input">
+                                        <option value="AL">AL</option>
+                                        <option value="AK">AK</option>
+                                        <option value="AZ">AZ</option>
+                                        <option value="AR">AR</option>
+                                        <option value="CA">CA</option>
+                                        <option value="CO">CO</option>
+                                        <option value="CT">CT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="FL">FL</option>
+                                        <option value="GA">GA</option>
+                                        <option value="HI">HI</option>
+                                        <option value="ID">ID</option>
+                                        <option value="IL">IL</option>
+                                        <option value="IN">IN</option>
+                                        <option value="IA">IA</option>
+                                        <option value="KS">KS</option>
+                                        <option value="KY">KY</option>
+                                        <option value="LA">LA</option>
+                                        <option value="ME">ME</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MI">MI</option>
+                                        <option value="MN">MN</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MO">MO</option>
+                                        <option value="MT">MT</option>
+                                        <option value="NE">NE</option>
+                                        <option value="NV">NV</option>
+                                        <option value="NH">NH</option>
+                                        <option value="NJ">NJ</option>
+                                        <option value="NM">NM</option>
+                                        <option value="NY">NY</option>
+                                        <option value="NC">NC</option>
+                                        <option value="ND">ND</option>
+                                        <option value="OH">OH</option>
+                                        <option value="OK">OK</option>
+                                        <option value="OR">OR</option>
+                                        <option value="PA">PA</option>
+                                        <option value="RI">RI</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SD">SD</option>
+                                        <option value="TN">TN</option>
+                                        <option value="TX">TX</option>
+                                        <option value="UT">UT</option>
+                                        <option value="VT">VT</option>
+                                        <option value="VA">VA</option>
+                                        <option value="WA">WA</option>
+                                        <option value="WV">WV</option>
+                                        <option value="WI">WI</option>
+                                        <option value="WY">WY</option>
                                     </select>
                                 </label>
                             </div>
@@ -133,128 +159,203 @@
                             </div>
                             <div class="cell">
                                 <h2>Trending Cities</h2>
-                                <p>
-                                    <span id="rec1">City1</span>, <span id="rec2">City2</span>, <span id="rec3">City4</span>, <span id="rec5">City5</span>,
-                                    <span id="rec6">City6</span>, <span id="rec7">City7</span>, <span id="rec8">City8</span>, <span id="rec9">City9</span>
-                                </p>
+                                <div class="cell trending-cities">
+                                    <p>
+                                        <span id="trend1">City1</span>,
+                                        <span id="trend2">City2</span>,
+                                        <span id="trend3">City4</span>,
+                                        <span id="trend4">City5</span>,
+                                        <span id="trend5">City6</span>,
+                                        <span id="trend6">City7</span>,
+                                        <span id="trend7">City8</span>,
+                                        <span id="trend8">City9</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cell">
+                                <h2>Your Saved Favorite Cities</h2>
+                                <div class="cell fav-cities">
+
+                                </div>
                             </div>
                         </div>
 
                         <hr>
 
-                        <div class="grid-x">
-                            <div class="cell small-5">
-                                <button type="button" class="button" id="login-button">Facebook/Google</button>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-6">
+                                <button type="button" class="button expanded" id="login-button" data-open="modal2">Sign-in</button>
                             </div>
-                            <div class="cell small-3">
-                                <button type="button" class="button" id="login-button">Log-in</button>
+                            <div class="cell small-6">
+                                <button type="button" class="button expanded" id="signup-button" data-open="modal1">Sign-Up</button>
                             </div>
-                            <div class="cell small-4">
-                                <button type="button" class="button" id="signup-button">Sign-Up</button>
+                            <div class="cell">
+                                <button type="button" class="button expanded signOut" id="signout-button">Sign-Out</button>
                             </div>
                         </div>
 
                     </form>
                 </div>
             </div>
+            <!-- off canvas (menu with inputs) -->
+
+            <!-- Start of page content -->
             <div class="off-canvas-content" data-off-canvas-content>
                 <div class="grid-container fluid">
                     <div class="grid-x grid-margin-x">
                         <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
-                        
+
                         <div class="cell">
-                                <div class="row">
-                                        <div class="columns">
-                                          <ul class="tabs" data-tabs id="example-tabs">
-                                            <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">City1</a></li>
-                                            <li class="tabs-title"><a href="#panel2">City2</a></li>
-                                            <li class="tabs-title"><a href="#panel3">City3</a></li>
-                                            <li class="tabs-title"><a href="#panel4">City4</a></li>
-                                            <li class="tabs-title"><a href="#panel5">City5</a></li>
-                                          </ul>
-                                      
-                                          <div class="tabs-content" data-tabs-content="example-tabs">
-                                            
-                                            <div class="tabs-panel is-active" id="panel1">
-                                                <div class="grid-container">
-                                                    <div class="grid-x grid-padding-x small-up-2 medium-up-2">
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a row of cards.</h4>
-                                                                    <p>This row of cards is embedded in an X-Y Block Grid.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a card.</h4>
-                                                                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cell">
-                                                            <div class="card">
-                                                                <div class="card-section">
-                                                                    <h4>This is a card.</h4>
-                                                                    <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                                                                </div>
+                            <div class="row">
+                                <div class="columns">
+                                            <div class="grid-container">
+                                                <div class="cell" id="city-buttons">
+                                                    Button Row
+                                                </div>     
+                                                <div class="grid-x grid-padding-x small-up-1 medium-up-2">
+
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>Local jobs</h4>
+                                                                <p>This is where we will place jobs tab</p>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <!-- Weather widget -->
+                                                                <div id="weather-widget"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <!-- Google Maps Widget -->
+                                                                <div id="map"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cell">
+                                                        <div class="card">
+
+                                                            <div class="card-section" id="realEstateDiv">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section">
+                                                                <h4>Best local Resteraunts</h4>
+                                                                <p>In this card we will place the local resteraunts Info.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="cell">
+                                                        <div class="card">
+                                                            <div class="card-section" id="demographics">
+                                                                <h4>Demographics and Pref Match</h4>
+                                                                <p>In this card we will place the demographic and prefernce match.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                </div>
                                             </div>
-                                            
-                                            <div class="tabs-panel" id="panel2">
-                                              <p>Two</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-7.jpg">
-                                            </div>
-                                            <div class="tabs-panel" id="panel3">
-                                              <p>Three</p>
-                                              <p>Check me out! I'm a super cool Tab panel with text content!</p>
-                                            </div>
-                                            <div class="tabs-panel" id="panel4">
-                                              <p>Four</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-2.jpg">
-                                            </div>
-                                            <div class="tabs-panel" id="panel5">
-                                              <p>Five</p>
-                                              <p>Check me out! I'm a super cool Tab panel with text content!</p>
-                                            </div>
-                                            <div class="tabs-panel" id="panel6">
-                                              <p>Six</p>
-                                              <img class="thumbnail" src="//foundation.zurb.com/sites/docs/assets/img/generic/rectangle-8.jpg">
-                                            </div>
-                                          </div>
                                         </div>
-                                      </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    
                     </div>
-                </div> 
+                </div>
+
+                <!-- Log-in/Sign-in popups -->
+                <div class="reveal" id="modal2" data-reveal>
+                    <form class="form-signin">
+                        <h2 class="form-signin-heading">Please Sign In</h2>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" id="signInEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
+                        <button class="button expanded signIn" data-close type="submit">Sign In</button>
+                    </form>
+                </div>
+
+                <div class="reveal" id="modal1" data-reveal>
+                    <form class="form-signup">
+                        <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" id="signUpEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="signUpPassword" class="sr-only">Password</label>
+                        <input type="password" id="signUpPassword" class="form-control" placeholder="Password" required>
+                        <div class="cell">
+                            <h1>Personal Preferences</h1>
+                        </div>
+
+                        <div class="cell">
+                            <label>Job Info
+                                <input type="text" id="job-input-SU" placeholder="What indsutry are you in?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Weather
+                                <input type="text" id="weather-input-SU" placeholder="What climate do you like?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>Housing
+                                <input type="text" id="housing-input-SU" placeholder="What are you looking to pay each month?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <label>City Size
+                                <input type="text" id="size-input-SU" placeholder="Are you a small town person or a city slicker?">
+                            </label>
+                        </div>
+                        <div class="cell">
+                            <button class="button expanded signUp" data-close type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        <!-- off canvas wrapper -->
     </div>
+    <!-- row column -->
 
     <!-- jquery cdn -->
     <!-- foundation js cdn -->
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.js"></script>
 
-    <script> $(document).foundation(); </script>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    
+    <script>
+        $(document).foundation();
+    </script>
+
+
+    <!-- Links to moment, google maps and local weather, education and maps js -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"></script>
+
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    
-    <script src="assets/javascript/weather.js"></script>
-    
-    <script src="assets/javascript/education.js"></script>
-  </body>
+
+
+    <script src="assets/javascript/dan.js"></script>
+
+    <script src="assets/javascript/auth.js"></script>
+    <script src="assets/javascript/fav cities.js"></script>
+    <script src="asset/javascript/restaurant.js">
+    </script>
+    <script src="assets/javascript/statePopulation.js"></script>
+    <script src="assets/javascript/trend_and_search_btns.js"></script>
+</body>
+
 </html>
