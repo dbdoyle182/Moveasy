@@ -29,8 +29,7 @@ firebase.auth().onAuthStateChanged(function (firebUser) {
   }
 });
 
-//Create a new account by passing the new user's email address and password
-//to createUserWithEmailAndPassword:
+//Create a new account by passing the new user's email address and password to createUserWithEmailAndPassword:
 
 //If the new account was created, the user is signed in automatically.
 //Users remain signed in, even when browser closes.
@@ -42,7 +41,6 @@ $(".signUp").click(function (event) {
   var password = $("#signUpPassword").val();
   console.log(password)
   var userInfo = {
-    // below variables will eventually be input values
     industry: $("#job-input-SU").val(),
     climate: $("#weather-input-SU").val(),
     housing: $("#housing-input-SU").val(),
@@ -77,12 +75,9 @@ $(".signUp").click(function (event) {
       console.log(errorCode);
       console.log(errorMessage);
     });
-  // $(".reveal").hide();
-  // $(".reveal-overlay").hide();
 });
 
-//When a user signs in to your app, pass the user's email address and password
-//to signInWithEmailAndPassword:
+//When a user signs in to the app, pass the user's email address and password to signInWithEmailAndPassword:
 $(".signIn").click(function (event) {
   event.preventDefault();
 
@@ -123,8 +118,6 @@ $(".signIn").click(function (event) {
       }
       console.log(errorCode);
     });
-  // $(".reveal").hide();
-  // $(".reveal-overlay").hide();
 });
 
 //sign-out click function
@@ -135,6 +128,4 @@ $(".signOut").click(function (event) {
   $("#login-button").show();
   $("#signup-button").show();
   $("#pref-form").show();
-  // $(".reveal").hide();
-  // $(".reveal-overlay").hide();
 });
