@@ -82,9 +82,13 @@ $("#submit-button").click(function(event) {
     favCityBtn.attr("data-name", favCities[i] + ", " + $("#state-input").val());
 
     var favCityBtn2 = favCityBtn.clone();
+    var favCityBtn3 = favCityBtn.clone();
+    var favCityBtn4 = favCityBtn.clone();
   }
   $(".fav-cities-notsi").append(favCityBtn);
   $("#city-buttons-nsi").append(favCityBtn2);
+  $(".fav-cities-si").append(favCityBtn3);
+  $("#city-buttons-si").append(favCityBtn4);
   //$("#city-input").val(null);
 });
 
