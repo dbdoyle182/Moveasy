@@ -419,6 +419,7 @@ var realEstate = function () {
     $.ajax({
         url: queryURL,
         method: "GET",
+        datatype: "jsonp"
     }).then(function(response) {
     // For loops that goes through each listing to gather information
         for (var i = 0; i < 10; i++) {

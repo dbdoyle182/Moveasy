@@ -11,8 +11,15 @@
     <!-- Foundation CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        jQuery.ajaxPrefilter(function(options) {
+            if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>MoveAssist</title>
+    <title>test</title>
     <style>
         #map {
             width: 100%;
@@ -328,13 +335,7 @@
     <script>
         $(document).foundation();
     </script>
-    <script>
-        jQuery.ajaxPrefilter(function(options) {
-            if (options.crossDomain && jQuery.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-            }
-        });
-    </script>
+
 
     <!-- Links to moment, google maps and local weather, education and maps js -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"></script>
