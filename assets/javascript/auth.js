@@ -18,23 +18,13 @@ firebase.auth().onAuthStateChanged(function (firebUser) {
     $("#login-button").hide();
     $("#signup-button").hide();
     $("#pref-form").hide();
-    //hide sign in button
-    //hide sign up form
-    //hide sign up button
-    //show sign out button
     //show favorite buttons
-    //hide non sign in pref form
     $(".user-signed-in").html("<p>you are signed in</p>");
   } else {
     $("#login-button").show();
     $("#signup-button").show();
     $("#pref-form").show();
-    //show sign in button
-    //show sign up form
-    //showsign up button
-    //hide sign out button
     //hide favorite buttons
-    //show non sign in pref form
     $(".user-signed-in").html("<p>you are signed out</p>");
   }
 });
@@ -147,10 +137,4 @@ $(".signOut").click(function (event) {
   $("#pref-form").show();
   $(".reveal").hide();
   $(".reveal-overlay").hide();
-  /* .then(function() {
-      // Sign-out successful.
-    })
-    .catch(function(error) {
-      // An error happened.
-    });*/
 });
