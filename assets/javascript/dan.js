@@ -648,4 +648,20 @@ $(document).on("click","#trendCityBtn", function(event){
     state = $(this).data("state");
     console.log(state);
     widgeOnLoad();
-})
+});
+$(document).on("click", ".favBtnNSI", function(event) {
+    event.preventDefault();
+    city = $(this).data("city");
+    console.log(city);
+    state = $(this).data("state");
+    console.log(state);
+    widgeOnLoad();
+});
+$(document).on("click", ".favBtnSI", function(event) {
+    event.preventDefault();
+    city = $(this).data("city");
+    console.log(city);
+    state = $(this).data("state");
+    console.log(state);
+    widgeOnLoad();
+});
