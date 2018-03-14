@@ -18,6 +18,7 @@
             }
         });
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>test</title>
     <style>
@@ -210,7 +211,7 @@
                                 <div class="columns">
                                             <div class="grid-container">
                                                 <div class="cell" id="city-buttons">
-                                                    Button Row
+            
                                                 </div>     
                                                 <div class="grid-x grid-padding-x small-up-1 medium-up-2">
 
@@ -249,9 +250,54 @@
                                                     <div class="cell">
                                                         <div class="card">
                                                             <div class="card-section">
-                                                                <h4>Best local Resteraunts</h4>
-                                                                <p>In this card we will place the local resteraunts Info.
-                                                                </p>
+                                                                <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+                                                                    <div class="orbit-wrapper">
+                                                                      <div class="orbit-controls">
+                                                                        <button class="orbit-previous"><span class="show-for-sr">Previous Resteraunt</span>&#9664;&#xFE0E;</button>
+                                                                        <button class="orbit-next"><span class="show-for-sr">Next Resteraunt</span>&#9654;&#xFE0E;</button>
+                                                                      </div>
+                                                                      <ul class="orbit-container">
+                                                                        <li class="is-active orbit-slide">
+                                                                          <figure class="orbit-figure">
+                                                                            <img class="orbit-image" src="https://placehold.it/1200x600/999?text=Slide-1" alt="place">
+                                                                            <figcaption class="orbit-caption">Caption</figcaption>
+                                                                          </figure>
+                                                                        </li>
+                                                                        <li class="orbit-slide">
+                                                                          <figure class="orbit-figure">
+                                                                            <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="place">
+                                                                            <figcaption class="orbit-caption">Caption</figcaption>
+                                                                          </figure>
+                                                                        </li>
+                                                                        <li class="orbit-slide">
+                                                                          <figure class="orbit-figure">
+                                                                            <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="place">
+                                                                            <figcaption class="orbit-caption">Caption</figcaption>
+                                                                          </figure>
+                                                                        </li>
+                                                                        <li class="orbit-slide">
+                                                                          <figure class="orbit-figure">
+                                                                            <img class="orbit-image" src="https://placehold.it/1200x600/666?text=Slide-4" alt="place">
+                                                                            <figcaption class="orbit-caption">Caption</figcaption>
+                                                                          </figure>
+                                                                        </li>
+                                                                        <li class="orbit-slide">
+                                                                            <figure class="orbit-figure">
+                                                                              <img class="orbit-image" src="https://placehold.it/1200x600/666?text=Slide-5" alt="place">
+                                                                              <figcaption class="orbit-caption">Caption</figcaption>
+                                                                            </figure>
+                                                                          </li>
+                                                                      </ul>
+                                                                    </div>
+                                                                    <nav class="orbit-bullets">
+                                                                      <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+                                                                      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+                                                                      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+                                                                      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+                                                                      <button data-slide="4"><span class="show-for-sr">Fifth slide details.</span></button>
+                                        
+                                                                    </nav>
+                                                                  </div>
                                                             </div>
                                                         </div>
                                                     </div>
