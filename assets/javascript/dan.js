@@ -1,19 +1,37 @@
 // Object array for trending cities
 var preloadArr = [{
     city: "Boston",
-    state: "Massachusetts"
+    state: "MA"
 },{
     city: "Chicago",
-    state: "Illinois"
+    state: "IL"
 },{
-    city: "Orlando",
-    state: "Florida"
+    city: "Seattle",
+    state: "WA"
 },{
-    city: "Sacramento",
-    state: "California"
+    city: "Boulder",
+    state: "CO"
+},{
+    city: "Charlotte",
+    state: "NC"
+},{
+    city: "New York",
+    state: "NY"
+},{
+    city: "Cincinnati",
+    state: "OH"
+},{
+    city: "Miami",
+    state: "FL"
+},{
+    city: "Nashville",
+    state: "TN"
+},{
+    city: "Salt Lake City",
+    state: "UT"
 }];
 // Determines which random city to load upon page open
-var randomCity = Math.floor(Math.random() * (preloadArr.length))
+var randomCity = Math.floor(Math.random() * (preloadArr.length));
 // Sets the initial city and state variables
 var city = preloadArr[randomCity].city;
 var state = preloadArr[randomCity].state;
@@ -339,6 +357,9 @@ var weatherFunc = function () {
 // Function for the real estate widget
 var realEstate = function () {
     $("#realEstateDiv").empty();
+    var realHeader = $("<h2>");
+    realHeader.text("Real Estate Listings")
+    $("#realEstateDiv").append(realHeader);
     // Grabs city and state value from the search
     var firstLet = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -346,73 +367,73 @@ var realEstate = function () {
     firstLet(city);
     console.log(city);
     console.log(state);
-    function abbrState(input, to){
+    // function abbrState(input, to){
     
-        var states = [
-            ['Arizona', 'AZ'],
-            ['Alabama', 'AL'],
-            ['Alaska', 'AK'],
-            ['Arizona', 'AZ'],
-            ['Arkansas', 'AR'],
-            ['California', 'CA'],
-            ['Colorado', 'CO'],
-            ['Connecticut', 'CT'],
-            ['Delaware', 'DE'],
-            ['Florida', 'FL'],
-            ['Georgia', 'GA'],
-            ['Hawaii', 'HI'],
-            ['Idaho', 'ID'],
-            ['Illinois', 'IL'],
-            ['Indiana', 'IN'],
-            ['Iowa', 'IA'],
-            ['Kansas', 'KS'],
-            ['Kentucky', 'KY'],
-            ['Kentucky', 'KY'],
-            ['Louisiana', 'LA'],
-            ['Maine', 'ME'],
-            ['Maryland', 'MD'],
-            ['Massachusetts', 'MA'],
-            ['Michigan', 'MI'],
-            ['Minnesota', 'MN'],
-            ['Mississippi', 'MS'],
-            ['Missouri', 'MO'],
-            ['Montana', 'MT'],
-            ['Nebraska', 'NE'],
-            ['Nevada', 'NV'],
-            ['New Hampshire', 'NH'],
-            ['New Jersey', 'NJ'],
-            ['New Mexico', 'NM'],
-            ['New York', 'NY'],
-            ['North Carolina', 'NC'],
-            ['North Dakota', 'ND'],
-            ['Ohio', 'OH'],
-            ['Oklahoma', 'OK'],
-            ['Oregon', 'OR'],
-            ['Pennsylvania', 'PA'],
-            ['Rhode Island', 'RI'],
-            ['South Carolina', 'SC'],
-            ['South Dakota', 'SD'],
-            ['Tennessee', 'TN'],
-            ['Texas', 'TX'],
-            ['Utah', 'UT'],
-            ['Vermont', 'VT'],
-            ['Virginia', 'VA'],
-            ['Washington', 'WA'],
-            ['West Virginia', 'WV'],
-            ['Wisconsin', 'WI'],
-            ['Wyoming', 'WY'],
-        ];
+    //     var states = [
+    //         ['Arizona', 'AZ'],
+    //         ['Alabama', 'AL'],
+    //         ['Alaska', 'AK'],
+    //         ['Arizona', 'AZ'],
+    //         ['Arkansas', 'AR'],
+    //         ['California', 'CA'],
+    //         ['Colorado', 'CO'],
+    //         ['Connecticut', 'CT'],
+    //         ['Delaware', 'DE'],
+    //         ['Florida', 'FL'],
+    //         ['Georgia', 'GA'],
+    //         ['Hawaii', 'HI'],
+    //         ['Idaho', 'ID'],
+    //         ['Illinois', 'IL'],
+    //         ['Indiana', 'IN'],
+    //         ['Iowa', 'IA'],
+    //         ['Kansas', 'KS'],
+    //         ['Kentucky', 'KY'],
+    //         ['Kentucky', 'KY'],
+    //         ['Louisiana', 'LA'],
+    //         ['Maine', 'ME'],
+    //         ['Maryland', 'MD'],
+    //         ['Massachusetts', 'MA'],
+    //         ['Michigan', 'MI'],
+    //         ['Minnesota', 'MN'],
+    //         ['Mississippi', 'MS'],
+    //         ['Missouri', 'MO'],
+    //         ['Montana', 'MT'],
+    //         ['Nebraska', 'NE'],
+    //         ['Nevada', 'NV'],
+    //         ['New Hampshire', 'NH'],
+    //         ['New Jersey', 'NJ'],
+    //         ['New Mexico', 'NM'],
+    //         ['New York', 'NY'],
+    //         ['North Carolina', 'NC'],
+    //         ['North Dakota', 'ND'],
+    //         ['Ohio', 'OH'],
+    //         ['Oklahoma', 'OK'],
+    //         ['Oregon', 'OR'],
+    //         ['Pennsylvania', 'PA'],
+    //         ['Rhode Island', 'RI'],
+    //         ['South Carolina', 'SC'],
+    //         ['South Dakota', 'SD'],
+    //         ['Tennessee', 'TN'],
+    //         ['Texas', 'TX'],
+    //         ['Utah', 'UT'],
+    //         ['Vermont', 'VT'],
+    //         ['Virginia', 'VA'],
+    //         ['Washington', 'WA'],
+    //         ['West Virginia', 'WV'],
+    //         ['Wisconsin', 'WI'],
+    //         ['Wyoming', 'WY'],
+    //     ];
     
-        if (to == 'abbr'){
-            input = input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-            for(i = 0; i < states.length; i++){
-                if(states[i][0] == input){
-                    return(states[i][1]);
-                };
-            };    
-        }; 
-    };
-    state = abbrState(state, "abbr");
+    //     if (to == 'abbr'){
+    //         input = input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    //         for(i = 0; i < states.length; i++){
+    //             if(states[i][0] == input){
+    //                 return(states[i][1]);
+    //             };
+    //         };    
+    //     }; 
+    // };
+    // state = abbrState(state, "abbr");
     // API url
     var queryURL = "https://staging-api.propmix.io/mlslite/idx/v1/GetListingsByGeo?access_token=c86d04057f3ea89f4e187281244927f37c62e13b80dd6f3a9462736409a7fe30&EffectiveDate=2018-03-13&PropertyType=Residential&City=" + city + "&State=" + state + "&MonthsBack=6&Rental=1&imagesON=1"
     // AJAX call to the real estate api
@@ -445,9 +466,7 @@ var realEstate = function () {
             }
             // console.log("Listed by: " + house.ListOfficeName);
             (houseDiv).append(houseInfo);
-            var realHeader = $("<h2>");
-            realHeader.text("Real Estate Listings")
-            $("#realEstateDiv").append(realHeader);
+
             $("#realEstateDiv").append(houseDiv);
 
             // console.log("------------")
@@ -458,11 +477,33 @@ var realEstate = function () {
 
 
 };
+// Function for the State Population widget
+var statePopulation = function(state) {
+
+    //ajax call that returns an array of states and their populations
+    $.ajax({
+      url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=state:*&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
+      method: 'GET'
+    }).then(function(response) {
+  
+      var stateInfoArray = response.filter(function(item) {
+  
+        //return the array with the same state name as the argument
+        return item[1].toLowerCase() === state.toLowerCase();
+      })[0];
+  
+      var population = stateInfoArray[0];
+      console.log(state);
+      console.log(population);
+  
+    });
+  };
 // Functions that runs on page load
 $(function(){
     openMap();
     weatherFunc();
     realEstate();
+    statePopulation(state);
 });
 // Functions that run on click
 $(document).on("click", "#submit-button", function(){
@@ -471,4 +512,5 @@ $(document).on("click", "#submit-button", function(){
     openMap();
     weatherFunc();
     realEstate();
+    statePopulation(state);
 });
