@@ -40,6 +40,7 @@ var openMap = function() {
     $("#map").empty();
     var apiKey = "AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + state + "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
+    console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -478,39 +479,162 @@ var realEstate = function () {
 
 };
 // Function for the State Population widget
-var statePopulation = function(state) {
-
+// Function for the State Population widget
+var statePopulation = function(stateAbbreviation) {
+    var states = [
+        ['Arizona', 'AZ'],
+        ['Alabama', 'AL'],
+        ['Alaska', 'AK'],
+        ['Arizona', 'AZ'],
+        ['Arkansas', 'AR'],
+        ['California', 'CA'],
+        ['Colorado', 'CO'],
+        ['Connecticut', 'CT'],
+        ['Delaware', 'DE'],
+        ['Florida', 'FL'],
+        ['Georgia', 'GA'],
+        ['Hawaii', 'HI'],
+        ['Idaho', 'ID'],
+        ['Illinois', 'IL'],
+        ['Indiana', 'IN'],
+        ['Iowa', 'IA'],
+        ['Kansas', 'KS'],
+        ['Kentucky', 'KY'],
+        ['Kentucky', 'KY'],
+        ['Louisiana', 'LA'],
+        ['Maine', 'ME'],
+        ['Maryland', 'MD'],
+        ['Massachusetts', 'MA'],
+        ['Michigan', 'MI'],
+        ['Minnesota', 'MN'],
+        ['Mississippi', 'MS'],
+        ['Missouri', 'MO'],
+        ['Montana', 'MT'],
+        ['Nebraska', 'NE'],
+        ['Nevada', 'NV'],
+        ['New Hampshire', 'NH'],
+        ['New Jersey', 'NJ'],
+        ['New Mexico', 'NM'],
+        ['New York', 'NY'],
+        ['North Carolina', 'NC'],
+        ['North Dakota', 'ND'],
+        ['Ohio', 'OH'],
+        ['Oklahoma', 'OK'],
+        ['Oregon', 'OR'],
+        ['Pennsylvania', 'PA'],
+        ['Rhode Island', 'RI'],
+        ['South Carolina', 'SC'],
+        ['South Dakota', 'SD'],
+        ['Tennessee', 'TN'],
+        ['Texas', 'TX'],
+        ['Utah', 'UT'],
+        ['Vermont', 'VT'],
+        ['Virginia', 'VA'],
+        ['Washington', 'WA'],
+        ['West Virginia', 'WV'],
+        ['Wisconsin', 'WI'],
+        ['Wyoming', 'WY'],
+    ];
+    var targetedStateArray = states.filter(function(stateArray) {
+        //returns the state array with the matching initials
+        return stateArray[1].toLowerCase() === stateAbbreviation.toLowerCase();
+    })[0];
+    var longStateName = targetedStateArray[0];
     //ajax call that returns an array of states and their populations
     $.ajax({
       url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=state:*&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
       method: 'GET'
     }).then(function(response) {
-  
-      var stateInfoArray = response.filter(function(item) {
+      
+    
+        var stateInfoArray = response.filter(function(item) {
   
         //return the array with the same state name as the argument
-        return item[1].toLowerCase() === state.toLowerCase();
-      })[0];
+        return item[1].toLowerCase() === longStateName.toLowerCase();
+        })[0];
   
-      var population = stateInfoArray[0];
-      console.log(state);
-      console.log(population);
+        var population = stateInfoArray[0];
+        console.log(state);
+        console.log(population);
   
     });
-  };
-// Functions that runs on page load
+};
+// Function that creates the restaurant content
+
+var getCityId = function(city) {
+    $.ajax({
+      headers: {'user-key':'c3d9aafa108e4ed6fabcca6ee5c1d954'},
+      url: 'https://developers.zomato.com/api/v2.1/cities?q=' + city,
+      method: 'GET'
+    }).then(function(firstResponse) {
+      var cityId = firstResponse.location_suggestions[0].id;
+  
+      console.log(cityId);
+  
+        $.ajax({
+            headers: {'user-key':'c3d9aafa108e4ed6fabcca6ee5c1d954'},
+            url: 'https://developers.zomato.com/api/v2.1/location_details?entity_type=city&entity_id=' + cityId,
+            method: 'GET'
+        }).then(function(secondResponse) {
+            var bestRatedRestaurants = secondResponse.best_rated_restaurant;
+            
+            var arrayOfRestaurantObjs = bestRatedRestaurants.map(function(item) {
+                
+                var obj = {};
+                var restaurant = item.restaurant;
+                
+                obj.name = restaurant.name;
+                obj.address = restaurant.location.address;
+                obj.imgURL = restaurant.featured_image;
+                obj.rating = restaurant.user_rating.aggregate_rating;
+                
+                return obj;
+                });
+                console.log(arrayOfRestaurantObjs);
+  
+            //writing resteraunt info into html slider in resteraunts section
+        
+                $(".rest1").attr('src' , arrayOfRestaurantObjs[0].imgURL);
+                $(".rest-cap1").html("<h1>"+ arrayOfRestaurantObjs[0].name + "</h1>" +
+                "<p>" + arrayOfRestaurantObjs[0].rating + "/5 </p>");                               
+  
+                $(".rest2").attr('src' , arrayOfRestaurantObjs[1].imgURL);
+                $(".rest-cap2").html("<h1>"+ arrayOfRestaurantObjs[1].name + "</h1>" +
+                "<p>" + arrayOfRestaurantObjs[1].rating + "/5 </p>");
+                            
+                $(".rest3").attr('src' , arrayOfRestaurantObjs[2].imgURL);
+                $(".rest-cap3").html("<h1>"+ arrayOfRestaurantObjs[2].name + "</h1>" +
+                "<p>" + arrayOfRestaurantObjs[2].rating + "/5 </p>");
+                            
+                $(".rest4").attr('src' , arrayOfRestaurantObjs[3].imgURL);
+                $(".rest-cap4").html("<h1>"+ arrayOfRestaurantObjs[3].name + "</h1>" +
+                "<p>" + arrayOfRestaurantObjs[3].rating + "/5 </p>");
+                            
+                $(".rest5").attr('src' , arrayOfRestaurantObjs[4].imgURL);
+                $(".rest-cap5").html("<h1>"+ arrayOfRestaurantObjs[4].name + "</h1>" +
+                "<p>" + arrayOfRestaurantObjs[4].rating + "/5 </p>");
+                            
+                console.log(arrayOfRestaurantObjs);
+        });
+    });
+};
+  // Functions that runs on page load
 $(function(){
     openMap();
     weatherFunc();
     realEstate();
     statePopulation(state);
+    getCityId(city + " " + state);
 });
 // Functions that run on click
-$(document).on("click", "#submit-button", function(){
+$(document).on("click", "#submit-button", function(event){
+    event.preventDefault();
     city = $("#city-input").val().trim();
+    console.log(city);
     state = $("#state-input").val().trim();
     openMap();
     weatherFunc();
     realEstate();
     statePopulation(state);
+    getCityId(city + " " + state);
 });

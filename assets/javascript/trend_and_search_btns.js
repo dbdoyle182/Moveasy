@@ -49,7 +49,7 @@ $("#submit-button").click(function(event) {
   }
   $(".fav-cities").append(favCityBtn);
   $("#city-buttons").append(favCityBtn);
-  $("#city-input").val(null);
+  $("#city-input").val();
 });
 
 showCityBtn();
