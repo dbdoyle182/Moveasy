@@ -53,6 +53,7 @@ function showCityBtn() {
       trendCities[i].state +
       "</button>"
     );
+    trendCityBtn.attr("id", "trendCityBtn")
     trendCityBtn.attr("data-city", trendCities[i].city);
     trendCityBtn.attr("data-state", trendCities[i].state);
     $(".trending-cities").append(trendCityBtn);
