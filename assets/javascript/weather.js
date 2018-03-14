@@ -13,7 +13,7 @@ var weatherFunc = function () {
         var latitude = response.results[0].geometry.location.lat
         var longitude = response.results[0].geometry.location.lng
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey;
         var sumTemp = 0;
         var sumHum = 0;
         var sumCloud = 0;
@@ -200,7 +200,7 @@ var weatherFunc = function () {
                     var tempDay = $("<h4>");
                     tempDay.css({"text-align":"center"})
                     var skyType = $("<img>");
-                    skyType.css({"text-align":"center"})
+                    skyType.css({"padding-left":"34px"})
                     dayName.text(week[j].day);
                     dayMonth.text(week[j].date);
                     tempDay.text(Math.floor(dailyTemp) + "°");
@@ -251,7 +251,7 @@ var weatherFunc = function () {
 
         });
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + apiKey;
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + apiKey;
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -265,7 +265,7 @@ var weatherFunc = function () {
             };
             var todayFore = firstLet(response.weather[0].description);
             var currentDay = $("<div>");
-            currentDay.css({"width":"130px","float":"left","text-align":"center"})
+            currentDay.css({"width":"130px","float":"left","text-align":"center","border":"1px solid black","border-radius":"6px"})
             var currentDate = $("<h3>");
             currentDate.text(todayDate);
             var currentMonth = $("<h3>");

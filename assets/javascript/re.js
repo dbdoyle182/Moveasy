@@ -81,24 +81,24 @@ var realEstate = function () {
             var house = response.Listings[i];
             var houseDiv = $("<div>");
             houseDiv.addClass("house");
-            console.log(house.ImageURLs[0]);
+            // console.log(house.ImageURLs[0]);
             var houseImg = $("<img src=" + house.ImageURLs[0] + ">")
             houseDiv.append(houseImg);
             var houseInfo;
-            console.log(house.Address);
-            console.log("For: " + house.ListingType);
+            // console.log(house.Address);
+            // console.log("For: " + house.ListingType);
             if (house.ListingType === "Sale") {
-                console.log(house.ListPrice + "$");
+                // console.log(house.ListPrice + "$");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ <br>" + "Listed by: " + house.ListOfficeName + "</p>")
             } else {
-                console.log(house.ListPrice + "$ per month");
+                // console.log(house.ListPrice + "$ per month");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ per month <br>" + "Listed by: " + house.ListOfficeName + "</p>")
             };
-            console.log("Listed by: " + house.ListOfficeName);
+            // console.log("Listed by: " + house.ListOfficeName);
             (houseDiv).append(houseInfo);
             $("#realEstateDiv").append(houseDiv);
 
-            console.log("------------")
+            // console.log("------------")
         }
 
 
