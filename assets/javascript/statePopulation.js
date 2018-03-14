@@ -8,7 +8,7 @@ var  statePopulation = function(state) {
 
     var stateInfoArray = response.filter(function(item) {
 
-      //state name is the 2nd item in the array
+      //return the array with the same state name as the argument
       return item[1].toLowerCase() === state.toLowerCase();
     })[0];
 
