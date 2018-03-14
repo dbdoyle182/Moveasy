@@ -3,9 +3,8 @@ var realEstate = function () {
     var firstLet = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
-    var city = firstLet($("#city-input").val().trim());
+    city = firstLet($("#city-input").val().trim());
     console.log(city);
-    var state = $("#state-input").val().trim();
     function abbrState(input, to){
     
         var states = [
@@ -81,7 +80,7 @@ var realEstate = function () {
         method: "GET",
     }).then(function(response) {
     // For loops that goes through each listing to gather information
-        for (var i = 0; i < (response.Listings).length; i++) {
+        for (var i = 0; i < 10; i++) {
             var house = response.Listings[i];
             var houseDiv = $("<div>");
             houseDiv.addClass("house");
