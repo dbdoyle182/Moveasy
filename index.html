@@ -38,7 +38,6 @@
                 <!-- Menu -->
                 
                 <div class="grid-container">
-                    <div class="grid-x grid-padding-x">
                         <div class="cell">
                             <img src="https://via.placeholder.com/200x200">
                         </div>
@@ -70,10 +69,10 @@
                             <div class="cell">
                                 <button type="button" class="button" id="prference-submit-button">Enter</button>
                             </div>
-
-                        </div>
-                    </div>
-                </form>
+                        </form>
+                  
+                </div>
+                
 
                 <hr>
                 <div class="grid-container">
@@ -311,12 +310,8 @@
                         <input type="email" id="signInEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
-                        <button class="button expanded signIn" type="submit">Sign In</button>
+                        <button class="button expanded signIn" data-close type="submit">Sign In</button>
                     </form>
-
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
 
                 <div class="reveal" id="modal1" data-reveal>
@@ -350,12 +345,10 @@
                                 <input type="text" id="size-input-SU" placeholder="Are you a small town person or a city slicker?">
                             </label>
                         </div>
-                        <button class="button expanded signUp" type="submit">Sign Up</button>
+                        <div class="cell">
+                            <button class="button expanded signUp" data-close type="submit">Sign Up</button>
+                        </div>
                     </form>
-
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
             </div>
         </div>

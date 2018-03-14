@@ -77,8 +77,8 @@ $(".signUp").click(function (event) {
       console.log(errorCode);
       console.log(errorMessage);
     });
-  $(".reveal").hide();
-  $(".reveal-overlay").hide();
+  // $(".reveal").hide();
+  // $(".reveal-overlay").hide();
 });
 
 //When a user signs in to your app, pass the user's email address and password
@@ -123,8 +123,8 @@ $(".signIn").click(function (event) {
       }
       console.log(errorCode);
     });
-  $(".reveal").hide();
-  $(".reveal-overlay").hide();
+  // $(".reveal").hide();
+  // $(".reveal-overlay").hide();
 });
 
 //sign-out click function
@@ -135,6 +135,6 @@ $(".signOut").click(function (event) {
   $("#login-button").show();
   $("#signup-button").show();
   $("#pref-form").show();
-  $(".reveal").hide();
-  $(".reveal-overlay").hide();
+  // $(".reveal").hide();
+  // $(".reveal-overlay").hide();
 });
