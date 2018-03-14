@@ -70,21 +70,7 @@ $("#submit-button").click(function (event) {
 
   //if user is signed-in, print unique search buttons that aren't shown on sign-out
   if (user) {
-    favCitiesSI.push(submission);
-    for (i = 0; i < favCitiesSI.length; i++) {
-      var favCityBtnSI = $(
-        "<button type='button' class='hollow button favBtnSI' href='#'>" +
-        favCitiesSI[i] +
-        ", " +
-        $("#state-input").val() +
-        "</button>"
-      );
-      favCityBtnSI.attr("data-city", submission);
-      favCityBtnSI.attr("data-state", $("#state-input").val());
-      var favCityBtnSI2 = favCityBtnSI.clone();
-      $(".fav-cities-si").append(favCityBtnSI);
-      $("#city-buttons-si").append(favCityBtnSI2);
-    }
+
 
     //if user is signed-out, print unique search buttons that aren't shown on sign-in
   } else {
