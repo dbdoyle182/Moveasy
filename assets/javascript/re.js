@@ -81,7 +81,7 @@ var realEstate = function () {
         method: "GET",
     }).then(function(response) {
     // For loops that goes through each listing to gather information
-        for (var i = 0; i < (response.Listings).length; i++) {
+        for (var i = 0; i < 10; i++) {
             var house = response.Listings[i];
             var houseDiv = $("<div>");
             houseDiv.addClass("house");

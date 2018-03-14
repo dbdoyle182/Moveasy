@@ -256,7 +256,7 @@ var weatherFunc = function () {
             url: queryURL2,
             method: "GET"
         }).then(function(response){
-            var imgLink = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+            var imgLink = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
             var todayDate = moment().format("ddd")
             var todayMonth = moment().format("MMM Do")
             var todayTemp = Math.floor(response.main.temp)
