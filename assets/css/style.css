@@ -31,6 +31,7 @@ body {
 #realEstateDiv h2 {
     text-align: center;
 }
+
 .house {
     width: 100%;
     position: relative;
@@ -44,10 +45,11 @@ body {
 
 .house p {
     position: absolute;
-    background-color: rgba(233,236,239,0.8);
+    background-color: rgba(233, 236, 239, 0.8);
     text-align: center;
     bottom: 5%;
     width: 100%
+}
 
 .user-signed-in {
     font-weight: bold;
