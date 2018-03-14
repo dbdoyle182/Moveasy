@@ -1,6 +1,6 @@
 .position-left {
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 400px;
     height: 100%;
     -webkit-transform: translateX(-400px);
@@ -16,11 +16,9 @@ h2 {
 }
 
 body {
-    background-image:url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
+    background-image: url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
     background-size: cover;
-
 }
-
 
 /* Real Estate Style */
 
@@ -50,4 +48,9 @@ body {
     text-align: center;
     bottom: 5%;
     width: 100%
+
+.user-signed-in {
+    font-weight: bold;
+    text-align: center;
+    color: red;
 }
