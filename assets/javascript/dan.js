@@ -477,11 +477,33 @@ var realEstate = function () {
 
 
 };
+// Function for the State Population widget
+var statePopulation = function(state) {
+
+    //ajax call that returns an array of states and their populations
+    $.ajax({
+      url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=state:*&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
+      method: 'GET'
+    }).then(function(response) {
+  
+      var stateInfoArray = response.filter(function(item) {
+  
+        //return the array with the same state name as the argument
+        return item[1].toLowerCase() === state.toLowerCase();
+      })[0];
+  
+      var population = stateInfoArray[0];
+      console.log(state);
+      console.log(population);
+  
+    });
+  };
 // Functions that runs on page load
 $(function(){
     openMap();
     weatherFunc();
     realEstate();
+    statePopulation(state);
 });
 // Functions that run on click
 $(document).on("click", "#submit-button", function(){
@@ -490,4 +512,5 @@ $(document).on("click", "#submit-button", function(){
     openMap();
     weatherFunc();
     realEstate();
+    statePopulation(state);
 });
