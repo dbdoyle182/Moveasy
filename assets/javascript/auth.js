@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 var user = null;
-firebase.auth().onAuthStateChanged(function(firebUser) {
+firebase.auth().onAuthStateChanged(function (firebUser) {
   console.log("authstatechanged");
   user = firebUser;
 
@@ -23,6 +23,10 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $(".signed-in").show();
     $("#city-buttons-nsi").hide();
     $("#city-buttons-si").show();
+    $(".fav-cities-si").show();
+    $(".fav-cities-nsi").hide();
+    $(".favBtnSI").show();
+    $(".favBtnNSI").hide();
   } else {
     $("#login-button").show();
     $("#signup-button").show();
@@ -33,6 +37,10 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $(".signed-in").hide();
     $("#city-buttons-nsi").show();
     $("#city-buttons-si").hide();
+    $(".fav-cities-si").hide();
+    $(".fav-cities-nsi").show();
+    $(".favBtnSI").hide();
+    $(".favBtnNSI").show();
   }
 });
 
@@ -40,7 +48,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
 
 //If the new account was created, the user is signed in automatically.
 //Users remain signed in, even when browser closes.
-$(".signUp").click(function(event) {
+$(".signUp").click(function (event) {
   event.preventDefault();
 
   var email = $("#signUpEmail")
@@ -59,7 +67,7 @@ $(".signUp").click(function(event) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(function(user) {
+    .then(function (user) {
       var uid = user.uid;
 
       firebase
@@ -68,7 +76,7 @@ $(".signUp").click(function(event) {
         .set(userInfo);
       console.log(userInfo);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -87,7 +95,7 @@ $(".signUp").click(function(event) {
 });
 
 //When a user signs in to the app, pass the user's email address and password to signInWithEmailAndPassword:
-$(".signIn").click(function(event) {
+$(".signIn").click(function (event) {
   event.preventDefault();
 
   var email = $("#signInEmail").val();
@@ -96,7 +104,7 @@ $(".signIn").click(function(event) {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(function(user) {
+    .then(function (user) {
       var uid = user.uid;
 
       var database = firebase.database();
@@ -104,14 +112,14 @@ $(".signIn").click(function(event) {
         .ref()
         .child("/" + uid)
         .once("value")
-        .then(function(snapshot) {
+        .then(function (snapshot) {
           var userInfo = snapshot.val();
           // ...
           console.log(userInfo);
           console.log(user);
         });
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -129,7 +137,7 @@ $(".signIn").click(function(event) {
 });
 
 //sign-out click function
-$(".signOut").click(function(event) {
+$(".signOut").click(function (event) {
   event.preventDefault();
   console.log("hello");
   firebase.auth().signOut();

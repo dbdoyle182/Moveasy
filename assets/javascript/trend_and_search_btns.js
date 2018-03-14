@@ -1,5 +1,4 @@
-var trendCities = [
-  {
+var trendCities = [{
     city: "Boston",
     state: "MA"
   },
@@ -41,7 +40,6 @@ var trendCities = [
   }
 ];
 
-var favCities = [];
 
 //function to render city buttons
 function showCityBtn() {
@@ -50,10 +48,10 @@ function showCityBtn() {
   for (i = 0; i < trendCities.length; i++) {
     var trendCityBtn = $(
       "<button type='button' class='hollow button' href='#'>" +
-        trendCities[i].city +
-        ", " +
-        trendCities[i].state +
-        "</button>"
+      trendCities[i].city +
+      ", " +
+      trendCities[i].state +
+      "</button>"
     );
     trendCityBtn.attr("data-city", trendCities[i].city);
     trendCityBtn.attr("data-state", trendCities[i].state);
@@ -62,35 +60,46 @@ function showCityBtn() {
 }
 
 //click function to generate new button based on user input
-$("#submit-button").click(function(event) {
+$("#submit-button").click(function (event) {
   event.preventDefault();
-  $(".favorite-cities").empty();
-
+  var favCitiesSI = [];
+  var favCitiesNSI = [];
   var submission = $("#city-input").val();
   console.log(submission);
 
-  favCities.push(submission);
-
-  for (i = 0; i < favCities.length; i++) {
-    var favCityBtn = $(
-      "<button type='button' class='hollow button favBtn' href='#'>" +
-        favCities[i] +
+  //if user is signed-in, print unique search buttons that aren't shown on sign-out
+  if (user) {
+    favCitiesSI.push(submission);
+    for (i = 0; i < favCitiesSI.length; i++) {
+      var favCityBtnSI = $(
+        "<button type='button' class='hollow button favBtnSI' href='#'>" +
+        favCitiesSI[i] +
         ", " +
         $("#state-input").val() +
         "</button>"
-    );
-    favCityBtn.attr("data-name", favCities[i] + ", " + $("#state-input").val());
+      );
+      var favCityBtnSI2 = favCityBtnSI.clone();
+      $(".fav-cities-si").append(favCityBtnSI);
+      $("#city-buttons-si").append(favCityBtnSI2);
+    }
 
-    var favCityBtn2 = favCityBtn.clone();
-    var favCityBtn3 = favCityBtn.clone();
-    var favCityBtn4 = favCityBtn.clone();
+    //if user is signed-out, print unique search buttons that aren't shown on sign-in
+  } else {
+    favCitiesNSI.push(submission);
+    for (i = 0; i < favCitiesNSI.length; i++) {
+      var favCityBtnNSI = $(
+        "<button type='button' class='hollow button favBtnNSI' href='#'>" +
+        favCitiesNSI[i] +
+        ", " +
+        $("#state-input").val() +
+        "</button>"
+      );
+      var favCityBtnNSI2 = favCityBtnNSI.clone();
+      $(".fav-cities-notsi").append(favCityBtnNSI);
+      $("#city-buttons-nsi").append(favCityBtnNSI2);
+    }
+
   }
-
-  $(".fav-cities-notsi").append(favCityBtn);
-  $("#city-buttons-nsi").append(favCityBtn2);
-  $(".fav-cities-si").append(favCityBtn3);
-  $("#city-buttons-si").append(favCityBtn4);
-  //$("#city-input").val(null);
 
 });
 
