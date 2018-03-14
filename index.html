@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        jQuery.ajaxPrefilter(function(options) {
+        jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
-            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
             }
         });
     </script>
@@ -161,21 +161,17 @@
                             <div class="cell">
                                 <h2>Trending Cities</h2>
                                 <div class="cell trending-cities">
-                                    <p>
-                                        <span id="trend1">City1</span>,
-                                        <span id="trend2">City2</span>,
-                                        <span id="trend3">City4</span>,
-                                        <span id="trend4">City5</span>,
-                                        <span id="trend5">City6</span>,
-                                        <span id="trend6">City7</span>,
-                                        <span id="trend7">City8</span>,
-                                        <span id="trend8">City9</span>
-                                    </p>
                                 </div>
                             </div>
-                            <div class="cell">
+                            <div class="cell not-signed-in">
                                 <h2>Your Saved Favorite Cities</h2>
-                                <div class="cell fav-cities">
+                                <div class="cell fav-cities-notsi">
+
+                                </div>
+                            </div>
+                            <div class="cell signed-in">
+                                <h2>Your Saved Favorite Cities</h2>
+                                <div class="cell fav-cities-si">
 
                                 </div>
                             </div>
@@ -209,170 +205,192 @@
                         <div class="cell">
                             <div class="row">
                                 <div class="columns">
-                                            <div class="grid-container">
-                                                <div class="cell" id="city-buttons">
-            
-                                                </div>     
-                                                <div class="grid-x grid-padding-x small-up-1 medium-up-2">
 
-                                                    <div class="cell">
-                                                        <div class="card">
-                                                            <div class="card-section">
-                                                                <h4>Local jobs</h4>
-                                                                <p>This is where we will place jobs tab</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <div class="card">
-                                                            <div class="card-section">
-                                                                <!-- Weather widget -->
-                                                                <div id="weather-widget"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <div class="card">
-                                                            <div class="card-section">
-                                                                <!-- Google Maps Widget -->
-                                                                <div id="map"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <div class="card">
+                                    <div class="grid-container">
+                                        <div class="cell" id="city-buttons-nsi">
 
-                                                            <div class="card-section" id="realEstateDiv">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        </div>
+                                        <div class="cell" id="city-buttons-si">
 
-                                                    <div class="cell">
-                                                        <div class="card">
-                                                            <div class="card-section">
-                                                                <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-                                                                    <div class="orbit-wrapper">
-                                                                      <div class="orbit-controls">
-                                                                        <button class="orbit-previous"><span class="show-for-sr">Previous Resteraunt</span>&#9664;&#xFE0E;</button>
-                                                                        <button class="orbit-next"><span class="show-for-sr">Next Resteraunt</span>&#9654;&#xFE0E;</button>
-                                                                      </div>
-                                                                      <ul class="orbit-container">
-                                                                        <li class="is-active orbit-slide">
-                                                                          <figure class="orbit-figure">
+                                        </div>
+                                        <div class="grid-x grid-padding-x small-up-1 medium-up-2">
+
+                                            <div class="cell">
+                                                <div class="card">
+                                                    <div class="card-section">
+                                                        <h4>Local jobs</h4>
+                                                        <p>This is where we will place jobs tab</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell">
+                                                <div class="card">
+                                                    <div class="card-section">
+                                                        <!-- Weather widget -->
+                                                        <div id="weather-widget"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell">
+                                                <div class="card">
+                                                    <div class="card-section">
+                                                        <!-- Google Maps Widget -->
+                                                        <div id="map"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell">
+                                                <div class="card">
+
+                                                    <div class="card-section" id="realEstateDiv">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="cell">
+                                                <div class="card">
+                                                    <div class="card-section">
+                                                        <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+                                                            <div class="orbit-wrapper">
+                                                                <div class="orbit-controls">
+                                                                    <button class="orbit-previous">
+                                                                        <span class="show-for-sr">Previous Resteraunt</span>&#9664;&#xFE0E;</button>
+                                                                    <button class="orbit-next">
+                                                                        <span class="show-for-sr">Next Resteraunt</span>&#9654;&#xFE0E;</button>
+                                                                </div>
+                                                                <ul class="orbit-container">
+                                                                    <li class="is-active orbit-slide">
+                                                                        <figure class="orbit-figure">
                                                                             <img class="orbit-image rest1" src="https://placehold.it/1200x600/999?text=Slide-1" alt="place">
                                                                             <figcaption class="orbit-caption rest-cap1"></figcaption>
-                                                                          </figure>
-                                                                        </li>
-                                                                        <li class="orbit-slide">
-                                                                          <figure class="orbit-figure">
+                                                                        </figure>
+                                                                    </li>
+                                                                    <li class="orbit-slide">
+                                                                        <figure class="orbit-figure">
                                                                             <img class="orbit-image rest2" src="https://placehold.it/1200x600/888?text=Slide-2" alt="place">
                                                                             <figcaption class="orbit-caption rest-cap2"></figcaption>
-                                                                          </figure>
-                                                                        </li>
-                                                                        <li class="orbit-slide">
-                                                                          <figure class="orbit-figure">
+                                                                        </figure>
+                                                                    </li>
+                                                                    <li class="orbit-slide">
+                                                                        <figure class="orbit-figure">
                                                                             <img class="orbit-image rest3" src="https://placehold.it/1200x600/777?text=Slide-3" alt="place">
                                                                             <figcaption class="orbit-caption rest-cap3"></figcaption>
-                                                                          </figure>
-                                                                        </li>
-                                                                        <li class="orbit-slide">
-                                                                          <figure class="orbit-figure">
+                                                                        </figure>
+                                                                    </li>
+                                                                    <li class="orbit-slide">
+                                                                        <figure class="orbit-figure">
                                                                             <img class="orbit-image rest4" src="https://placehold.it/1200x600/666?text=Slide-4" alt="place">
                                                                             <figcaption class="orbit-caption rest-cap4"></figcaption>
-                                                                          </figure>
-                                                                        </li>
-                                                                        <li class="orbit-slide">
-                                                                            <figure class="orbit-figure">
-                                                                              <img class="orbit-image rest5" src="https://placehold.it/1200x600/666?text=Slide-5" alt="place">
-                                                                              <figcaption class="orbit-caption rest-cap5"></figcaption>
-                                                                            </figure>
-                                                                          </li>
-                                                                      </ul>
-                                                                    </div>
-                                                                    <nav class="orbit-bullets">
-                                                                      <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-                                                                      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-                                                                      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-                                                                      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-                                                                      <button data-slide="4"><span class="show-for-sr">Fifth slide details.</span></button>
-                                        
-                                                                    </nav>
-                                                                  </div>
+                                                                        </figure>
+                                                                    </li>
+                                                                    <li class="orbit-slide">
+                                                                        <figure class="orbit-figure">
+                                                                            <img class="orbit-image rest5" src="https://placehold.it/1200x600/666?text=Slide-5" alt="place">
+                                                                            <figcaption class="orbit-caption rest-cap5"></figcaption>
+                                                                        </figure>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
+                                                            <nav class="orbit-bullets">
+                                                                <button class="is-active" data-slide="0">
+                                                                    <span class="show-for-sr">First slide details.</span>
+                                                                    <span class="show-for-sr">Current Slide</span>
+                                                                </button>
+                                                                <button data-slide="1">
+                                                                    <span class="show-for-sr">Second slide details.</span>
+                                                                </button>
+                                                                <button data-slide="2">
+                                                                    <span class="show-for-sr">Third slide details.</span>
+                                                                </button>
+                                                                <button data-slide="3">
+                                                                    <span class="show-for-sr">Fourth slide details.</span>
+                                                                </button>
+                                                                <button data-slide="4">
+                                                                    <span class="show-for-sr">Fifth slide details.</span>
+                                                                </button>
+
+                                                            </nav>
                                                         </div>
                                                     </div>
-
-                                                    <div class="cell">
-                                                        <div class="card">
-                                                            <div class="card-section" id="demographics">
-                                                                <h4>Demographics and Pref Match</h4>
-                                                                <p>In this card we will place the demographic and prefernce match.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="cell">
+                                        <div class="card">
+                                            <div class="card-section" id="demographics">
+                                                <h4>Demographics and Pref Match</h4>
+                                                <p>In this card we will place the demographic and prefernce match.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Log-in/Sign-in popups -->
-                <div class="reveal" id="modal2" data-reveal>
-                    <form class="form-signin">
-                        <h2 class="form-signin-heading">Please Sign In</h2>
-                        <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" id="signInEmail" class="form-control" placeholder="Email address" required autofocus>
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
-                        <button class="button expanded signIn" data-close type="submit">Sign In</button>
-                    </form>
-                </div>
-
-                <div class="reveal" id="modal1" data-reveal>
-                    <form class="form-signup">
-                        <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
-                        <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" id="signUpEmail" class="form-control" placeholder="Email address" required autofocus>
-                        <label for="signUpPassword" class="sr-only">Password</label>
-                        <input type="password" id="signUpPassword" class="form-control" placeholder="Password" required>
-                        <div class="cell">
-                            <h1>Personal Preferences</h1>
-                        </div>
-
-                        <div class="cell">
-                            <label>Job Info
-                                <input type="text" id="job-input-SU" placeholder="What indsutry are you in?">
-                            </label>
-                        </div>
-                        <div class="cell">
-                            <label>Weather
-                                <input type="text" id="weather-input-SU" placeholder="What climate do you like?">
-                            </label>
-                        </div>
-                        <div class="cell">
-                            <label>Housing
-                                <input type="text" id="housing-input-SU" placeholder="What are you looking to pay each month?">
-                            </label>
-                        </div>
-                        <div class="cell">
-                            <label>City Size
-                                <input type="text" id="size-input-SU" placeholder="Are you a small town person or a city slicker?">
-                            </label>
-                        </div>
-                        <div class="cell">
-                            <button class="button expanded signUp" data-close type="submit">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
-        <!-- off canvas wrapper -->
+    </div>
+    </div>
+
+    <!-- Log-in/Sign-in popups -->
+    <div class="reveal" id="modal2" data-reveal>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please Sign In</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="signInEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
+            <button class="button expanded signIn" data-close type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <div class="reveal" id="modal1" data-reveal>
+        <form class="form-signup">
+            <h2 class="form-signup-heading">Sign up to save preferences and city searches.</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="signUpEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="signUpPassword" class="sr-only">Password</label>
+            <input type="password" id="signUpPassword" class="form-control" placeholder="Password" required>
+            <div class="cell">
+                <h1>Personal Preferences</h1>
+            </div>
+
+            <div class="cell">
+                <label>Job Info
+                    <input type="text" id="job-input-SU" placeholder="What indsutry are you in?">
+                </label>
+            </div>
+            <div class="cell">
+                <label>Weather
+                    <input type="text" id="weather-input-SU" placeholder="What climate do you like?">
+                </label>
+            </div>
+            <div class="cell">
+                <label>Housing
+                    <input type="text" id="housing-input-SU" placeholder="What are you looking to pay each month?">
+                </label>
+            </div>
+            <div class="cell">
+                <label>City Size
+                    <input type="text" id="size-input-SU" placeholder="Are you a small town person or a city slicker?">
+                </label>
+            </div>
+            <div class="cell">
+                <button class="button expanded signUp" data-close type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    <!-- off canvas wrapper -->
     </div>
     <!-- row column -->
 
