@@ -1,8 +1,9 @@
 var weatherFunc = function () {
-    // var city = $("#city-input").val().trim();
-    // var state = $("#state-input").val().trim();
-    var city = "Rochester";
-    var state = "NY";
+    var city = $("#city-input").val().trim();
+    var state = $("#state-input").val().trim();
+    // var city = "Rochester";
+    // var state = "NY";
+    $("#weather-widget").empty();
     var apiKey = "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + state + "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     $.ajax({
@@ -12,7 +13,7 @@ var weatherFunc = function () {
         var latitude = response.results[0].geometry.location.lat
         var longitude = response.results[0].geometry.location.lng
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey;
         var sumTemp = 0;
         var sumHum = 0;
         var sumCloud = 0;
@@ -193,15 +194,16 @@ var weatherFunc = function () {
                     var dailyWeather = $("<div>");
                     dailyWeather.css({"float":"left", "width":"100px"});
                     var dayName = $("<p>");
-                    dayName.css({"padding-left":"15px"});
+                    dayName.css({"text-align":"center"});
                     var dayMonth = $("<p>")
-                    dayMonth.css({"padding-left":"5px"})
+                    dayMonth.css({"text-align":"center"})
                     var tempDay = $("<h4>");
-                    tempDay.css({"margin":"0 25px"})
+                    tempDay.css({"text-align":"center"})
                     var skyType = $("<img>");
+                    skyType.css({"padding-left":"34px"})
                     dayName.text(week[j].day);
                     dayMonth.text(week[j].date);
-                    tempDay.text(Math.floor(dailyTemp));
+                    tempDay.text(Math.floor(dailyTemp) + "°");
                     if (cloudAvg > 80 && snowAvg < 1 && rainAvg < 1) {
                         // console.log("Very cloudy")
                         // console.log("----------")
@@ -249,7 +251,7 @@ var weatherFunc = function () {
 
         });
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + apiKey;
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + apiKey;
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -263,7 +265,7 @@ var weatherFunc = function () {
             };
             var todayFore = firstLet(response.weather[0].description);
             var currentDay = $("<div>");
-            currentDay.css({"width":"130px","float":"left"})
+            currentDay.css({"width":"130px","float":"left","text-align":"center","border":"1px solid black","border-radius":"6px"})
             var currentDate = $("<h3>");
             currentDate.text(todayDate);
             var currentMonth = $("<h3>");
@@ -284,6 +286,6 @@ var weatherFunc = function () {
     });
 };
 $(function(){
-    weatherFunc();
+
 })
-$(document).on("click", "submit-button", weatherFunc);
+$(document).on("click", "#submit-button", weatherFunc);
