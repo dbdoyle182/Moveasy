@@ -1,6 +1,10 @@
 var realEstate = function () {
     // Grabs city and state value from the search
-    var city = $("#city-input").val().trim();
+    var firstLet = function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    var city = firstLet($("#city-input").val().trim());
+    console.log(city);
     var state = $("#state-input").val().trim();
     function abbrState(input, to){
     
