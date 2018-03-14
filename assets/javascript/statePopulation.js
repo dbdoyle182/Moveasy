@@ -16,6 +16,6 @@ var  statePopulation = function(state) {
     console.log(population);
 
   });
-}
+};
 
 statePopulation('nebraska');
