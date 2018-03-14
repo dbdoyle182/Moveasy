@@ -37,10 +37,11 @@ var city = preloadArr[randomCity].city;
 var state = preloadArr[randomCity].state;
 // Function for the Google Maps widget
 var openMap = function() {
+    // Clears the map div
     $("#map").empty();
     var apiKey = "AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + state + "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
-    console.log(queryURL);
+    // Calls the Geocoding API to retrieve the Lat. and Lon. of searched city
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -50,7 +51,7 @@ var openMap = function() {
         var longitude = response.results[0].geometry.location.lng
         console.log(longitude)
     
-    
+    // Function that takes the converted lat and lon and places a marker on that spot with a map around it
         function initMap() {
 
             var uluru = {lat: latitude, lng: longitude};
@@ -73,9 +74,11 @@ var weatherFunc = function () {
 
     // var city = "Rochester";
     // var state = "NY";
+    // Clears out the weather div
     $("#weather-widget").empty();
     var apiKey = "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + state + "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
+    // Ajax call to convert searched city into lat and lon coordinates
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -84,9 +87,7 @@ var weatherFunc = function () {
         var longitude = response.results[0].geometry.location.lng
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + apiKey;
-        var sumTemp = 0;
-        var sumHum = 0;
-        var sumCloud = 0;
+        // Creates an object array with a space for each day of the week
         var week = [{
             date: "",
             day: "",
@@ -162,14 +163,15 @@ var weatherFunc = function () {
             url: queryURL,
             method: "GET"
         }).then(function(response){
+        // Loops through the array of data and collects data based on the day of the week
         for (var i = 0; i < (response.list).length; i++) {
+            // Converts provided time data into usable value
             var unixTime = (response.list[i]).dt
-            var newDate = moment(unixTime, "X");
-    
+            var newDate = moment(unixTime, "X");    
             var convertedDOW = moment(newDate).format("ddd");
-
             var convertedDate = moment(newDate).format("MMM Do");
             var fullDate = convertedDOW + " " + convertedDate;
+            // Seven if statements that compile the information per 3 hour increments
             if (convertedDOW === "Mon") {
                 week[0].count++;
                 week[0].temp += response.list[i].main.temp;
@@ -253,11 +255,13 @@ var weatherFunc = function () {
             
         
             };
+            // For loop that goes through the object array after the data is finished compiling
             for (var j = 0; j < week.length; j++){
                 var dailyTemp = week[j].temp / week[j].count;
                 var cloudAvg = week[j].cloud / week[j].count;
                 var rainAvg = week[j].rain / week[j].count;
                 var snowAvg = week[j].snow / week[j].count;
+                // If statement that determines if they have a full days worth of data to ensure four days no matter the time of day the call is performed
                 if (week[j].count === 8) {
                     // console.log(week[j].date);
                     // console.log(Math.floor(dailyTemp));
@@ -320,6 +324,7 @@ var weatherFunc = function () {
             };
 
         });
+        // This ajax call pulls from the single day weather and develops a similar yet more detailed response then the above
         var apiKey = "&appid=70b17dee0232f4d7a21df681d272d59b&units=imperial";
         var queryURL2 = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + apiKey;
         $.ajax({
@@ -357,17 +362,20 @@ var weatherFunc = function () {
 };
 // Function for the real estate widget
 var realEstate = function () {
+    // Clears the real estate div
     $("#realEstateDiv").empty();
+    // Creates the header for the section dynamically
     var realHeader = $("<h2>");
     realHeader.text("Real Estate Listings")
     $("#realEstateDiv").append(realHeader);
-    // Grabs city and state value from the search
+    // Function that grabs the first letter of a string and capitalizes it
     var firstLet = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
     firstLet(city);
     console.log(city);
     console.log(state);
+    // Function to convert longform state into it's respective abbrieviation 
     // function abbrState(input, to){
     
     //     var states = [
@@ -446,6 +454,7 @@ var realEstate = function () {
     // For loops that goes through each listing to gather information
         for (var i = 0; i < 10; i++) {
             var house = response.Listings[i];
+            // Build the html that houses the selected content
             var houseDiv = $("<div>");
             houseDiv.addClass("house");
             // console.log(house.ImageURLs[0]);
@@ -478,7 +487,7 @@ var realEstate = function () {
 
 
 };
-// Function for the State Population widget
+
 // Function for the State Population widget
 var statePopulation = function(stateAbbreviation) {
     var states = [
@@ -622,6 +631,7 @@ var getCityId = function(city) {
         });
     });
 };
+// Function that calls all of our widget functions 
 var widgeOnLoad = function() {
     openMap();
     weatherFunc();
@@ -633,7 +643,7 @@ var widgeOnLoad = function() {
 $(function(){
     widgeOnLoad();
 });
-// Functions that run on click
+// Functions that run on click of submit button
 $(document).on("click", "#submit-button", function(event){
     event.preventDefault();
     city = $("#city-input").val().trim();
@@ -641,6 +651,7 @@ $(document).on("click", "#submit-button", function(event){
     state = $("#state-input").val().trim();
     widgeOnLoad();
 });
+// This calls our widget function when you click a trending city
 $(document).on("click","#trendCityBtn", function(event){
     event.preventDefault();
     city = $(this).data("city");
@@ -649,6 +660,7 @@ $(document).on("click","#trendCityBtn", function(event){
     console.log(state);
     widgeOnLoad();
 });
+// The calls our widgets on click of favorite buttons for user not signed in/up
 $(document).on("click", ".favBtnNSI", function(event) {
     event.preventDefault();
     city = $(this).data("city");
@@ -657,6 +669,7 @@ $(document).on("click", ".favBtnNSI", function(event) {
     console.log(state);
     widgeOnLoad();
 });
+// This calls our widgets on click of favorite buttons for users signed in
 $(document).on("click", ".favBtnSI", function(event) {
     event.preventDefault();
     city = $(this).data("city");
