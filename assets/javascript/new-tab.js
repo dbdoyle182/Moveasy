@@ -36,7 +36,7 @@ newPanel.append(newContainer);
 $(".tabs-content").append(newPanel);
 
 //for creating new tab title
-var newCity = $("<li class='tabs-title cityTitle'><a href=" + variable + ">City2</a></li>")
+var newCity = $("<li class='tabs-title cityTitle'><a href=" + variable + ">Cityname</a></li>")
 
 $("#city-tabs").prepend(newCity);
 
