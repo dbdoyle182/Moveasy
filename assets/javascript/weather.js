@@ -273,7 +273,7 @@ var weatherFunc = function () {
             var currentImg = $("<img>");
             currentImg.attr("src", imgLink)
             var currentTemp = $("<h4>");
-            currentTemp.text(todayTemp);
+            currentTemp.text(todayTemp + "°");
             var currentFore = $("<p>");
             currentFore.text(todayFore);
             $("#weather-widget").prepend(currentDay);
