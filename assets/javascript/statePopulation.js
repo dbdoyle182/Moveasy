@@ -13,7 +13,8 @@ var  statePopulation = function(state) {
     })[0];
 
     var population = stateInfoArray[0]; 
-    console.log(population);
+    console.log("population:" + population);
+
 
   });
 };

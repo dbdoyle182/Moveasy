@@ -556,7 +556,11 @@ var statePopulation = function(stateAbbreviation) {
         var population = stateInfoArray[0];
         console.log(state);
         console.log(population);
-  
+
+        // $("#name-of-city").text()
+        $("#pop").text(population);
+        //to add: conditions for displaying city size icon.
+        
     });
 };
 // Function that creates the restaurant content
