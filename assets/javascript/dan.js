@@ -622,13 +622,16 @@ var getCityId = function(city) {
         });
     });
 };
-  // Functions that runs on page load
-$(function(){
+var widgeOnLoad = function() {
     openMap();
     weatherFunc();
     realEstate();
     statePopulation(state);
     getCityId(city + " " + state);
+};
+  // Functions that runs on page load
+$(function(){
+    widgeOnLoad();
 });
 // Functions that run on click
 $(document).on("click", "#submit-button", function(event){
@@ -636,9 +639,13 @@ $(document).on("click", "#submit-button", function(event){
     city = $("#city-input").val().trim();
     console.log(city);
     state = $("#state-input").val().trim();
-    openMap();
-    weatherFunc();
-    realEstate();
-    statePopulation(state);
-    getCityId(city + " " + state);
+    widgeOnLoad();
 });
+$(document).on("click","#trendCityBtn", function(event){
+    event.preventDefault();
+    city = $(this).data("city");
+    console.log(city);
+    state = $(this).data("state");
+    console.log(state);
+    widgeOnLoad();
+})
