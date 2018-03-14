@@ -1,4 +1,4 @@
-$("#submit-button").click(function(event) {
+$("#submit-button").click(function (event) {
   event.preventDefault();
 
   if (!user) {
@@ -9,7 +9,7 @@ $("#submit-button").click(function(event) {
   var uid = user.uid;
   var myCitiesRef = database.ref("/" + uid + "/favCities");
 
-  myCitiesRef.once("value", function(snap) {
+  myCitiesRef.once("value", function (snap) {
     // get current favs from firebase
     var favs = snap.val();
 
@@ -19,14 +19,21 @@ $("#submit-button").click(function(event) {
       favs = [];
     }
 
-    var cityName = $("#city-input").val();
-    +", " + $("#state-input").val();
+    var cityName = $("#city-input").val() +
+      ", " + $("#state-input").val();
     console.log(cityName);
     favs.push(cityName);
     console.log(favs);
 
     myCitiesRef.set(favs);
+    $(".fav-cities-si").empty();
+    for (i = 0; i < favs.length; i++) {
 
-    //print whatever we need to print
+      var savedCityBtn = $(
+        "<button type='button' class='hollow button favBtnSI' href='#'>" +
+        favs[i] + "</button>");
+
+      $(".fav-cities-si").append(savedCityBtn);
+    }
   });
 });
