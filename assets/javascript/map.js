@@ -46,15 +46,17 @@ var openMap = function() {
     initMap();
     });
 };
+// Functions that runs on page load
 $(function(){
  
 
     
 
     openMap();
-})
+});
+// Functions that run on click
 $(document).on("click", "#submit-button", function(){
     city = $("#city-input").val().trim();
     state = $("#state-input").val().trim();
     openMap();
-})
+});
