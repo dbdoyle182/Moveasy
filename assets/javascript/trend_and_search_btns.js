@@ -96,6 +96,8 @@ $("#submit-button").click(function (event) {
         $("#state-input").val() +
         "</button>"
       );
+      favCityBtnNSI.attr("data-city", submission);
+      favCityBtnNSI.attr("data-state", $("#state-input").val());
       var favCityBtnNSI2 = favCityBtnNSI.clone();
       $(".fav-cities-notsi").append(favCityBtnNSI);
       $("#city-buttons-nsi").append(favCityBtnNSI2);
