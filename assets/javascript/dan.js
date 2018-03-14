@@ -1,3 +1,4 @@
+// Object array for trending cities
 var preloadArr = [{
     city: "Boston",
     state: "Massachusetts"
@@ -11,10 +12,12 @@ var preloadArr = [{
     city: "Sacramento",
     state: "California"
 }];
+// Determines which random city to load upon page open
 var randomCity = Math.floor(Math.random() * (preloadArr.length))
-
+// Sets the initial city and state variables
 var city = preloadArr[randomCity].city;
 var state = preloadArr[randomCity].state;
+// Function for the Google Maps widget
 var openMap = function() {
     $("#map").empty();
     var apiKey = "AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY"
@@ -46,6 +49,7 @@ var openMap = function() {
     initMap();
     });
 };
+// Function for the weater widget
 var weatherFunc = function () {
 
     // var city = "Rochester";
@@ -332,6 +336,7 @@ var weatherFunc = function () {
         })
     });
 };
+// Function for the real estate widget
 var realEstate = function () {
     $("#realEstateDiv").empty();
     // Grabs city and state value from the search
