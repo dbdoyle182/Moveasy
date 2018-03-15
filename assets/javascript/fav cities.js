@@ -1,4 +1,4 @@
-$("#submit-button").click(function(event) {
+$("#submit-button").click(function (event) {
   event.preventDefault();
 
   if (!user) {
@@ -9,7 +9,7 @@ $("#submit-button").click(function(event) {
   var uid = user.uid;
   var myCitiesRef = database.ref("/" + uid + "/favCities");
 
-  myCitiesRef.once("value", function(snap) {
+  myCitiesRef.once("value", function (snap) {
     // get current favs from firebase
     var favs = snap.val();
 
@@ -32,12 +32,12 @@ $("#submit-button").click(function(event) {
       var favState = favs[i].split(", ")[1];
       var savedCityBtn = $(
         "<button type='button' class='hollow button favBtnSI' href='#' data-city='" +
-          favCity +
-          "' data-state='" +
-          favState +
-          "'>" +
-          favs[i] +
-          "</button>"
+        favCity +
+        "' data-state='" +
+        favState +
+        "'>" +
+        favs[i] +
+        "</button>"
       );
 
       var savedCityBtn2 = savedCityBtn.clone();

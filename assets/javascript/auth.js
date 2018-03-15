@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 var user = null;
-firebase.auth().onAuthStateChanged(function(firebUser) {
+firebase.auth().onAuthStateChanged(function (firebUser) {
   console.log("authstatechanged");
   user = firebUser;
 
@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
         var uid = user.uid;
         var myCitiesRef = database.ref("/" + uid + "/favCities");
 
-        myCitiesRef.once("value", function(snap) {
+        myCitiesRef.once("value", function (snap) {
           // get current favs from firebase
           var favs = snap.val();
 
@@ -50,12 +50,12 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
             var favState = favs[i].split(", ")[1];
             var savedCityBtn = $(
               "<button type='button' class='hollow button favBtnSI' href='#' data-city='" +
-                favCity +
-                "' data-state='" +
-                favState +
-                "'>" +
-                favs[i] +
-                "</button>"
+              favCity +
+              "' data-state='" +
+              favState +
+              "'>" +
+              favs[i] +
+              "</button>"
             );
 
             var savedCityBtn2 = savedCityBtn.clone();
@@ -87,7 +87,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
 
 //If the new account was created, the user is signed in automatically.
 //Users remain signed in, even when browser closes.
-$(".signUp").click(function(event) {
+$(".signUp").click(function (event) {
   event.preventDefault();
 
   var email = $("#signUpEmail")
@@ -106,7 +106,7 @@ $(".signUp").click(function(event) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(function(user) {
+    .then(function (user) {
       var uid = user.uid;
 
       firebase
@@ -115,7 +115,7 @@ $(".signUp").click(function(event) {
         .set(userInfo);
       console.log(userInfo);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -134,11 +134,11 @@ $(".signUp").click(function(event) {
 });
 
 //When a user signs in to the app, pass the user's email address and password to signInWithEmailAndPassword:
-$("#signInEmail").blur(function() {
+$("#signInEmail").blur(function () {
   $(".signIn").attr("data-close", "");
   console.log("blur");
 });
-$(".signIn").click(function(event) {
+$(".signIn").click(function (event) {
   event.preventDefault();
 
   var email = $("#signInEmail").val();
@@ -147,23 +147,23 @@ $(".signIn").click(function(event) {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(function(user) {
-      var uid = user.uid;
+    .then(function (user) {
+      //var uid = user.uid;
       $("#signInEmail").removeClass("signInEmail");
 
-      var database = firebase.database();
-      database
-        .ref()
-        .child("/" + uid)
-        .once("value")
-        .then(function(snapshot) {
-          var userInfo = snapshot.val();
-          // ...
-          console.log(userInfo);
-          console.log(user);
-        });
+      /* var database = firebase.database();
+       database
+         .ref()
+         .child("/" + uid)
+         .once("value")
+         .then(function(snapshot) {
+           var userInfo = snapshot.val();
+           // ...
+           console.log(userInfo);
+           console.log(user);
+         });*/
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -175,13 +175,12 @@ $(".signIn").click(function(event) {
         $(".signIn").removeAttr("data-close");
       } else if (errorCode === "auth/user-not-found") {
         console.log("not valid user");
-      } else {
-      }
+      } else {}
     });
 });
 
 //sign-out click function
-$(".signOut").click(function(event) {
+$(".signOut").click(function (event) {
   event.preventDefault();
   console.log("hello");
   firebase.auth().signOut();

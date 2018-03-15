@@ -1,5 +1,4 @@
-var trendCities = [
-  {
+var trendCities = [{
     city: "Boston",
     state: "MA"
   },
@@ -44,10 +43,10 @@ function showCityBtn() {
   for (i = 0; i < trendCities.length; i++) {
     var trendCityBtn = $(
       "<button type='button' class='hollow button trendCityBtn' href='#'>" +
-        trendCities[i].city +
-        ", " +
-        trendCities[i].state +
-        "</button>"
+      trendCities[i].city +
+      ", " +
+      trendCities[i].state +
+      "</button>"
     );
     trendCityBtn.attr("data-city", trendCities[i].city);
     trendCityBtn.attr("data-state", trendCities[i].state);
@@ -56,7 +55,7 @@ function showCityBtn() {
 }
 
 //click function to generate new fav city buttons based on user input
-$("#submit-button").click(function(event) {
+$("#submit-button").click(function (event) {
   event.preventDefault();
   var favCitiesSI = [];
   var favCitiesNSI = [];
@@ -71,16 +70,17 @@ $("#submit-button").click(function(event) {
     for (i = 0; i < favCitiesNSI.length; i++) {
       var favCityBtnNSI = $(
         "<button type='button' class='hollow button favBtnNSI' href='#'>" +
-          favCitiesNSI[i] +
-          ", " +
-          $("#state-input").val() +
-          "</button>"
+        favCitiesNSI[i] +
+        ", " +
+        $("#state-input").val() +
+        "</button>"
       );
       favCityBtnNSI.attr("data-city", submission);
       favCityBtnNSI.attr("data-state", $("#state-input").val());
       var favCityBtnNSI2 = favCityBtnNSI.clone();
       $(".fav-cities-notsi").append(favCityBtnNSI);
       $("#city-buttons-nsi").append(favCityBtnNSI2);
+      $("#city-input").empty();
     }
   }
 });
