@@ -1,58 +1,63 @@
 .position-left {
-    top: 0;
-    left: 0;
-    width: 400px;
-    height: 100%;
-    -webkit-transform: translateX(-400px);
-    transform: translateX(-400px);
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  -webkit-transform: translateX(-400px);
+  transform: translateX(-400px);
 }
 
 h1 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 h2 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 body {
-    background-image: url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
-    background-size: cover;
+  background-image: url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
+  background-size: cover;
 }
 
 /* Real Estate Style */
 
 #realEstateDiv {
-    height: 430px;
-    overflow: scroll;
-    background-color: lavender;
+  height: 430px;
+  overflow: scroll;
+  background-color: lavender;
 }
 
 #realEstateDiv h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .house {
-    width: 100%;
-    position: relative;
-    margin-bottom: 20px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .house img {
-    width: 100%;
-    height: 250px;
+  width: 100%;
+  height: 250px;
 }
 
 .house p {
-    position: absolute;
-    background-color: rgba(233, 236, 239, 0.8);
-    text-align: center;
-    bottom: 5%;
-    width: 100%
+  position: absolute;
+  background-color: rgba(233, 236, 239, 0.8);
+  text-align: center;
+  bottom: 5%;
+  width: 100%;
 }
 
 .user-signed-in {
-    font-weight: bold;
-    text-align: center;
-    color: red;
+  font-weight: bold;
+  text-align: center;
+  color: red;
+}
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
 }
