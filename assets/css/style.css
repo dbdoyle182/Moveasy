@@ -70,3 +70,7 @@ body {
   height: 400px;
   background-color: grey;
 }
+
+.valStatus {
+  border-color: red;
+}
