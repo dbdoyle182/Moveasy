@@ -14,9 +14,10 @@ then searches for: san fransisco, our percentage match compares data from the ci
 We will be implementing Firebase to store a predetermined set of cities and would like to add authentication through Firebase to save preferences/city searches for the user. 
 We have considered the following API:
 1. Open weather
-2. Zillow
-3. Indeed
+2. PropMix.io
+3. Google Maps
 4. Census Bureau 
-5. Great Schools
+5. GeoCoding API
+6. Zomato 
 
-Alts: Joople, DataUSA, Zomato, Yelp,  data.gov
+Alts: Joople, DataUSA, Yelp,  data.gov
