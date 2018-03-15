@@ -7,6 +7,14 @@
   transform: translateX(-400px);
 }
 
+h5 {
+  font-family: 'Lato', sans-serif;
+  font-size: 40px;
+  color: white;
+  position: relative;
+  left: -48px;
+}
+
 h1 {
   font-size: 20px;
 }
@@ -65,4 +73,8 @@ body {
 
 .currentWeather {
   text-align: center;
+}
+.valStatus {
+  border-color: red;
+
 }

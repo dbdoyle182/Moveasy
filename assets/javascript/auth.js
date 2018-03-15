@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $("#login-button").hide();
     $("#signup-button").hide();
     $("#pref-form").hide();
-    $(".user-signed-in").html("<p>you are signed in</p>");
+    $(".user-signed-in").html("<p>You are signed in.</p>");
     $(".not-signed-in").hide();
     $(".signed-in").show();
     $("#city-buttons-nsi").hide();
@@ -71,7 +71,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $("#signup-button").show();
     $("#pref-form").show();
     //hide favorite buttons
-    $(".user-signed-in").html("<p>you are signed out</p>");
+    $(".user-signed-in").html("<p>You are signed out.</p>");
     $(".not-signed-in").show();
     $(".signed-in").hide();
     $("#city-buttons-nsi").show();
@@ -134,6 +134,10 @@ $(".signUp").click(function(event) {
 });
 
 //When a user signs in to the app, pass the user's email address and password to signInWithEmailAndPassword:
+$("#signInEmail").blur(function() {
+  $(".signIn").attr("data-close", "");
+  console.log("blur");
+});
 $(".signIn").click(function(event) {
   event.preventDefault();
 
@@ -145,6 +149,7 @@ $(".signIn").click(function(event) {
     .signInWithEmailAndPassword(email, password)
     .then(function(user) {
       var uid = user.uid;
+      $("#signInEmail").removeClass("signInEmail");
 
       var database = firebase.database();
       database
@@ -163,15 +168,15 @@ $(".signIn").click(function(event) {
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode === "auth/wrong-password") {
-        alert("Wrong password.");
+        console.log("wrong password");
       } else if (errorCode === "auth/invalid-email") {
-        alert("Invalid password.");
+        console.log("val error");
+        $("#signInEmail").addClass("valStatus");
+        $(".signIn").removeAttr("data-close");
       } else if (errorCode === "auth/user-not-found") {
-        alert("User not found.");
+        console.log("not valid user");
       } else {
-        alert(errorMessage);
       }
-      console.log(errorCode);
     });
 });
 

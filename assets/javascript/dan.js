@@ -97,6 +97,12 @@ var weatherFunc = function() {
     "," +
     state +
     "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY";
+
+  //CHANGES PAGE TITLING
+
+  $("#city-titling").html(city);
+ 
+    
   // Ajax call to convert searched city into lat and lon coordinates
   $.ajax({
     url: queryURL,
@@ -591,10 +597,14 @@ var weatherFunc = function() {
       currentDay.append(currentImg);
       currentDay.append(currentTemp);
       currentDay.append(currentFore);
+ widget-work
+
+
     //   if (response.weather[0].icon === "01d" || response.weather[0].icon === "10d") {
     //       $("body").css({"background-image":"url(assets/images/city-cloudy-daytime.jpg"})
     //       console.log("clear skies")
     //   }
+ master
     });
   });
 };
@@ -762,7 +772,7 @@ var realEstate = function() {
 };
 
 // Function for the State Population widget
-var statePopulation = function(stateAbbreviation) {
+var statePopulation = function(stateAbbreviation, cityName) {
   var states = [
     ["Arizona", "AZ"],
     ["Alabama", "AL"],
@@ -833,11 +843,71 @@ var statePopulation = function(stateAbbreviation) {
       return item[1].toLowerCase() === longStateName.toLowerCase();
     })[0];
 
-        $("#name-of-city").text(stateInfoArray[1])
-        $("#pop").text(population);
-        //to add: conditions for displaying city size icon.
-        
+
     });
+
+    var stateCode = stateInfoArray[stateInfoArray.length - 1];
+    $.ajax({
+      url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=place:*&in=state:' + stateCode + '&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
+      method: 'GET'
+    }).then(function(secondResponse) {
+
+      cityName = cityName.toLowerCase();
+
+      var cityInfoArray = secondResponse.map(function(array) {
+        return [array[1].toLowerCase(), array[0]];
+      })
+      .filter(function(item) {
+        return item[0].indexOf(cityName) > -1;
+      })[0];
+
+      
+      var population = cityInfoArray[1];
+      console.log(population);
+
+      $("#name-of-city").text(city)
+        $("#pop").text(population);
+        
+        if (population < 1000){
+        $("#city-size-cat").text("village");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        };
+
+        if (population > 1000 && population < 20001){
+        $("#city-size-cat").text("Town");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        };
+
+        if (population > 20000 && population < 100001){
+        $("#city-size-cat").text("Large town");
+        $("size-symbol").attr('src', 'assets/images/city-icon-small')
+        };
+
+        if (population > 100000 && population < 300001){
+        $("#city-size-cat").text("City");
+        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        };
+
+        if (population > 300000 && population < 1000001){
+        $("#city-size-cat").text("Large city");
+        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        };
+
+        if (population > 1000000 && population < 3000001){
+        $("#city-size-cat").text("Metropolis");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
+
+        if (population > 3000000 && population < 10000001){
+        $("#city-size-cat").text("Conurbation");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
+
+        if (population > 10000000){
+        $("#city-size-cat").text("Megalopolis");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
+    });  
 
 };
 // Function that creates the restaurant content
@@ -935,7 +1005,7 @@ var widgeOnLoad = function() {
   openMap();
   weatherFunc();
   realEstate();
-  statePopulation(state);
+  statePopulation(state, city);
   getCityId(city + " " + state);
 };
 // Functions that runs on page load
@@ -953,6 +1023,7 @@ $(document).on("click", "#submit-button", function(event) {
     .val()
     .trim();
   widgeOnLoad();
+  
 });
 // This calls our widget function when you click a trending city
 $(document).on("click", ".trendCityBtn", function(event) {
