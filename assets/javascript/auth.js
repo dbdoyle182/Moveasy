@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $("#login-button").hide();
     $("#signup-button").hide();
     $("#pref-form").hide();
-    $(".user-signed-in").html("<p>you are signed in</p>");
+    $(".user-signed-in").html("<p>You are signed in.</p>");
     $(".not-signed-in").hide();
     $(".signed-in").show();
     $("#city-buttons-nsi").hide();
@@ -71,7 +71,7 @@ firebase.auth().onAuthStateChanged(function(firebUser) {
     $("#signup-button").show();
     $("#pref-form").show();
     //hide favorite buttons
-    $(".user-signed-in").html("<p>you are signed out</p>");
+    $(".user-signed-in").html("<p>You are signed out.</p>");
     $(".not-signed-in").show();
     $(".signed-in").hide();
     $("#city-buttons-nsi").show();
