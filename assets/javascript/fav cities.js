@@ -19,8 +19,6 @@ $("#submit-button").click(function (event) {
       favs = [];
     }
 
-    var city = $("#city-input").val();
-    var state = $("#state-input").val();
     var cityName = $("#city-input").val() +
       ", " + $("#state-input").val();
     console.log(cityName);
@@ -31,8 +29,10 @@ $("#submit-button").click(function (event) {
     $(".fav-cities-si").empty();
     for (i = 0; i < favs.length; i++) {
 
+      var favCity = favs[i].split(", ")[0];
+      var favState = favs[i].split(", ")[1];
       var savedCityBtn = $(
-        "<button type='button' class='hollow button favBtnSI' href='#' data-city='" + favs[i] + "'>" +
+        "<button type='button' class='hollow button favBtnSI' href='#' data-city='" + favCity + "' data-state='" + favState + "'>" +
         favs[i] + "</button>");
 
       // savedCityBtn.attr("data-city", $("#city-input").val());
