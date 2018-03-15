@@ -324,6 +324,8 @@ var weatherFunc = function() {
             // console.log("Clear skies")
             // console.log("----------")
             skyType.attr("src", "./assets/images/007-sun.png");
+          } else { 
+            skyType.attr("src", "./assets/images/007-sun.png")
           }
           // if (snowAvg > 1) {
           //     console.log("Snow incoming");
