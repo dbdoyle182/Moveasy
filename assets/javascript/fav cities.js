@@ -26,6 +26,7 @@ $("#submit-button").click(function(event) {
 
     myCitiesRef.set(favs);
     $(".fav-cities-si").empty();
+    $("#city-buttons-si").empty();
     for (i = 0; i < favs.length; i++) {
       var favCity = favs[i].split(", ")[0];
       var favState = favs[i].split(", ")[1];
