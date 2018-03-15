@@ -566,7 +566,7 @@ var realEstate = function() {
 };
 
 // Function for the State Population widget
-var statePopulation = function(stateAbbreviation) {
+var statePopulation = function(stateAbbreviation, cityName) {
   var states = [
     ["Arizona", "AZ"],
     ["Alabama", "AL"],
@@ -637,11 +637,30 @@ var statePopulation = function(stateAbbreviation) {
       return item[1].toLowerCase() === longStateName.toLowerCase();
     })[0];
 
-        $("#name-of-city").text(stateInfoArray[1])
-        $("#pop").text(population);
-        //to add: conditions for displaying city size icon.
-        
-    });
+    var stateCode = stateInfoArray[stateInfoArray.length - 1];
+    $.ajax({
+      url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=place:*&in=state:' + stateCode + '&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
+      method: 'GET'
+    }).then(function(secondResponse) {
+
+      cityName = cityName.toLowerCase();
+
+      var cityInfoArray = secondResponse.map(function(array) {
+        return [array[1].toLowerCase(), array[0]];
+      })
+      .filter(function(item) {
+        return item[0].indexOf(cityName) > -1;
+      })[0];
+
+      
+      var population = cityInfoArray[1];
+      console.log(population);
+
+      $("#name-of-city").text(city)
+      $("#pop").text(population);
+      //to add: conditions for displaying city size icon.
+    });  
+  });
 
 };
 // Function that creates the restaurant content
@@ -739,7 +758,7 @@ var widgeOnLoad = function() {
   openMap();
   weatherFunc();
   realEstate();
-  statePopulation(state);
+  statePopulation(state, city);
   getCityId(city + " " + state);
 };
 // Functions that runs on page load
@@ -757,6 +776,7 @@ $(document).on("click", "#submit-button", function(event) {
     .val()
     .trim();
   widgeOnLoad();
+  
 });
 // This calls our widget function when you click a trending city
 $(document).on("click", ".trendCityBtn", function(event) {
