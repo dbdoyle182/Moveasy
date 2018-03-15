@@ -1006,11 +1006,12 @@ var widgeOnLoad = function() {
   weatherFunc();
   realEstate();
   statePopulation(state, city);
-  getCityId(city + " " + state);
+//   getCityId(city + " " + state);
 };
 // Functions that runs on page load
 $(function() {
   widgeOnLoad();
+  
 });
 // Functions that run on click of submit button
 $(document).on("click", "#submit-button", function(event) {
