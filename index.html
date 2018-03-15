@@ -20,8 +20,9 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/moveasy-icon.ico" type="image/x-icon">    
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Moving Assist</title>
+    <title>Moveasy</title>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 
                 <div class="grid-container">
                     <div class="cell">
-                        <img src="https://via.placeholder.com/200x200">
+                        <img src="assets/images/moveasy-tagline.png">
                     </div>
                     <!-- <form id="pref-form">
                         <div class="cell">
@@ -150,7 +151,7 @@
 
                         <div class="grid-x">
                             <div class="cell">
-                                <button type="button" class="button" id="submit-button">Search</button>
+                                <button type="button" class="button expanded" id="submit-button">City Search</button>
                             </div>
                             <div class="cell">
                                 <h2>Trending Cities</h2>
@@ -196,7 +197,7 @@
                     <div class="grid-x grid-margin-x">
                         <div class="columns small-6 right" data-sticky-container>
                         <div class="sticky" data-sticky data-margin-top="0">
-                            <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
+                            <button type="button" class="button large" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
                         </div>
                         </div>
                         <h5 id="city-titling"></h5>
@@ -377,11 +378,11 @@
                                                     <div class="card-section" id="demographics">
                                                         <h4>Demographics</h4>
                                                         <img id="size-symbol" src="assets/images/city-icon-large.png">
-                                                        <p>
+                                                        <p id="pop-caption">
                                                             <span id="name-of-city"></span>'s population is
                                                             <span id="pop"></span>.</p>
-                                                        <p>It is a 
-                                                            <span id="city-size-cat"></span>.</p>
+                                                        <p id="size-classification">Classification: 
+                                                            <span id="city-size-cat"></span></p>
 
                                                     </div>
                                                 </div>
@@ -405,6 +406,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Footer -->
+                <footer>
+                    <div id="footer content">
+                    <img src="assets/images/moveasy-footer.png">
+                    <p><b>© Brad Ferrell, Cameron Burrows, Daniel Doyle, Juan Fox</b></p>
+                    </div>
+                </footer>
+            
             </div>
         </div>
     </div>

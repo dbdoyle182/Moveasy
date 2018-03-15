@@ -867,7 +867,7 @@ var statePopulation = function(stateAbbreviation, cityName) {
         $("#pop").text(population);
         
         if (population < 1000){
-        $("#city-size-cat").text("village");
+        $("#city-size-cat").text("Village");
         $("#size-symbol").attr('src', 'assets/images/city-icon-very-small.png')
         };
 
@@ -877,7 +877,7 @@ var statePopulation = function(stateAbbreviation, cityName) {
         };
 
         if (population > 20000 && population < 100001){
-        $("#city-size-cat").text("Large town");
+        $("#city-size-cat").text("Large Town");
         $("#size-symbol").attr('src', 'assets/images/city-icon-small.png')
         };
 
@@ -887,8 +887,8 @@ var statePopulation = function(stateAbbreviation, cityName) {
         };
 
         if (population > 300000 && population < 1000001){
-        $("#city-size-cat").text("Large city");
-        $("#size-symbol").attr('src', 'assets/images/city-icon-large.png')
+        $("#city-size-cat").text("Large City");
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-large.png')
         };
 
         if (population > 1000000 && population < 3000001){
