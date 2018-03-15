@@ -597,14 +597,14 @@ var weatherFunc = function() {
       currentDay.append(currentImg);
       currentDay.append(currentTemp);
       currentDay.append(currentFore);
- widget-work
+
 
 
     //   if (response.weather[0].icon === "01d" || response.weather[0].icon === "10d") {
     //       $("body").css({"background-image":"url(assets/images/city-cloudy-daytime.jpg"})
     //       console.log("clear skies")
     //   }
- master
+
     });
   });
 };
