@@ -97,6 +97,12 @@ var weatherFunc = function() {
     "," +
     state +
     "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY";
+
+  //CHANGES PAGE TITLING
+
+  $("#city-titling").html(city);
+ 
+    
   // Ajax call to convert searched city into lat and lon coordinates
   $.ajax({
     url: queryURL,
@@ -394,6 +400,7 @@ var weatherFunc = function() {
       currentDay.append(currentImg);
       currentDay.append(currentTemp);
       currentDay.append(currentFore);
+
     });
   });
 };
