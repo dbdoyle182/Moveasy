@@ -293,15 +293,10 @@ var weatherFunc = function() {
           // console.log(week[j].date);
           // console.log(Math.floor(dailyTemp));
           var dailyWeather = $("<div>");
-          dailyWeather.css({ float: "left", width: "100px" });
           var dayName = $("<p>");
-          dayName.css({ "text-align": "center" });
           var dayMonth = $("<p>");
-          dayMonth.css({ "text-align": "center" });
           var tempDay = $("<h4>");
-          tempDay.css({ "text-align": "center" });
           var skyType = $("<img>");
-          skyType.css({ "padding-left": "34px" });
           dayName.text(week[j].day);
           dayMonth.text(week[j].date);
           tempDay.text(Math.floor(dailyTemp) + "°");
@@ -327,6 +322,7 @@ var weatherFunc = function() {
           } else { 
             skyType.attr("src", "./assets/images/007-sun.png")
           }
+        //   For the future would like to add a way to develop snow and rain condition for the forecasting
           // if (snowAvg > 1) {
           //     console.log("Snow incoming");
           //     console.log("----------");
@@ -342,12 +338,216 @@ var weatherFunc = function() {
           //     console.log("----------");
           //     skyType.attr("src", "./assets/images/002-lightning.png")
           // }
-
-          $("#weather-widget").append(dailyWeather);
-          dailyWeather.append(dayName);
-          dailyWeather.append(dayMonth);
-          dailyWeather.append(skyType);
-          dailyWeather.append(tempDay);
+        if (moment().format("ddd") === "Mon") {
+            if (week[j].day === "Tue") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Wed") {
+                $("#day2").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Thu") {
+                $("#day3").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Fri") {
+                $("#day4").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Tue") {
+            if (week[j].day === "Wed") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);                    
+                };
+            if (week[j].day === "Thu") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Fri") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sat") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Wed") {
+            if (week[j].day === "Thu") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Fri") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sat") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sun") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Thu") {
+            if (week[j].day === "Fri") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sat") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sun") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Mon") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Fri") {
+            if (week[j].day === "Sat") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Sun") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Mon") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Tue") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Sat") {
+            if (week[j].day === "Sun") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Mon") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Tue") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Wed") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
+        if (moment().format("ddd") === "Sun") {
+            if (week[j].day === "Mon") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Tue") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Wed") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            if (week[j].day === "Thu") {
+                $("#day1").append(dailyWeather);
+                dailyWeather.append(dayName);
+                dailyWeather.append(dayMonth);
+                dailyWeather.append(skyType);
+                dailyWeather.append(tempDay);
+                };
+            };
         }
       }
     });
@@ -374,13 +574,7 @@ var weatherFunc = function() {
       };
       var todayFore = firstLet(response.weather[0].description);
       var currentDay = $("<div>");
-      currentDay.css({
-        width: "130px",
-        float: "left",
-        "text-align": "center",
-        border: "1px solid black",
-        "border-radius": "6px"
-      });
+      currentDay.addClass("currentWeather")
       var currentDate = $("<h3>");
       currentDate.text(todayDate);
       var currentMonth = $("<h3>");
@@ -391,7 +585,7 @@ var weatherFunc = function() {
       currentTemp.text(todayTemp + "°");
       var currentFore = $("<p>");
       currentFore.text(todayFore);
-      $("#weather-widget").prepend(currentDay);
+      $("#currentDay").append(currentDay);
       currentDay.append(currentDate);
       currentDay.append(currentMonth);
       currentDay.append(currentImg);
