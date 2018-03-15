@@ -47,9 +47,9 @@ var openMap = function() {
         method: "GET"
     }).then(function(response){
         var latitude = response.results[0].geometry.location.lat
-        console.log(latitude);
+        // console.log(latitude);
         var longitude = response.results[0].geometry.location.lng
-        console.log(longitude)
+        // console.log(longitude)
     
     // Function that takes the converted lat and lon and places a marker on that spot with a map around it
         function initMap() {
@@ -373,8 +373,8 @@ var realEstate = function () {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
     firstLet(city);
-    console.log(city);
-    console.log(state);
+    // console.log(city);
+    // console.log(state);
     // Function to convert longform state into it's respective abbrieviation 
     // function abbrState(input, to){
     
@@ -563,8 +563,8 @@ var statePopulation = function(stateAbbreviation) {
         })[0];
   
         var population = stateInfoArray[0];
-        console.log(state);
-        console.log(population);
+        // console.log(state);
+        // console.log(population);
 
         // $("#name-of-city").text()
         $("#pop").text(population);
@@ -582,7 +582,7 @@ var getCityId = function(city) {
     }).then(function(firstResponse) {
       var cityId = firstResponse.location_suggestions[0].id;
   
-      console.log(cityId);
+    //   console.log(cityId);
   
         $.ajax({
             headers: {'user-key':'c3d9aafa108e4ed6fabcca6ee5c1d954'},
@@ -603,7 +603,7 @@ var getCityId = function(city) {
                 
                 return obj;
                 });
-                console.log(arrayOfRestaurantObjs);
+                // console.log(arrayOfRestaurantObjs);
   
             //writing resteraunt info into html slider in resteraunts section
         
@@ -627,7 +627,7 @@ var getCityId = function(city) {
                 $(".rest-cap5").html("<h1>"+ arrayOfRestaurantObjs[4].name + "</h1>" +
                 "<p>" + arrayOfRestaurantObjs[4].rating + "/5 </p>");
                             
-                console.log(arrayOfRestaurantObjs);
+                // console.log(arrayOfRestaurantObjs);
         });
     });
 };
@@ -647,7 +647,7 @@ $(function(){
 $(document).on("click", "#submit-button", function(event){
     event.preventDefault();
     city = $("#city-input").val().trim();
-    console.log(city);
+    // console.log(city);
     state = $("#state-input").val().trim();
     widgeOnLoad();
 });
@@ -655,26 +655,26 @@ $(document).on("click", "#submit-button", function(event){
 $(document).on("click","#trendCityBtn", function(event){
     event.preventDefault();
     city = $(this).data("city");
-    console.log(city);
+    // console.log(city);
     state = $(this).data("state");
-    console.log(state);
+    // console.log(state);
     widgeOnLoad();
 });
 // The calls our widgets on click of favorite buttons for user not signed in/up
 $(document).on("click", ".favBtnNSI", function(event) {
     event.preventDefault();
     city = $(this).data("city");
-    console.log(city);
+    // console.log(city);
     state = $(this).data("state");
-    console.log(state);
+    // console.log(state);
     widgeOnLoad();
 });
 // This calls our widgets on click of favorite buttons for users signed in
 $(document).on("click", ".favBtnSI", function(event) {
     event.preventDefault();
     city = $(this).data("city");
-    console.log(city);
+    // console.log(city);
     state = $(this).data("state");
-    console.log(state);
+    // console.log(state);
     widgeOnLoad();
 });
