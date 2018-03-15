@@ -20,10 +20,6 @@ var trendCities = [
     state: "NC"
   },
   {
-    city: "New York",
-    state: "NY"
-  },
-  {
     city: "Cincinnati",
     state: "OH"
   },
@@ -36,8 +32,8 @@ var trendCities = [
     state: "TN"
   },
   {
-    city: "Salt Lake City",
-    state: "UT"
+    city: "Atlanta",
+    state: "GA"
   }
 ];
 

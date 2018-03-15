@@ -21,10 +21,6 @@ var preloadArr = [
     state: "NC"
   },
   {
-    city: "New York",
-    state: "NY"
-  },
-  {
     city: "Cincinnati",
     state: "OH"
   },
@@ -37,8 +33,8 @@ var preloadArr = [
     state: "TN"
   },
   {
-    city: "Salt Lake City",
-    state: "UT"
+    city: "Atlanta",
+    state: "GA"
   }
 ];
 // Determines which random city to load upon page open
@@ -89,7 +85,11 @@ var weatherFunc = function() {
   // var city = "Rochester";
   // var state = "NY";
   // Clears out the weather div
-  $("#weather-widget").empty();
+  $("#currentDay").empty();
+  $("#day1").empty();
+  $("#day2").empty();
+  $("#day3").empty();
+  $("#day4").empty();
   var apiKey = "&key=AIzaSyBQA5YHnpwER_Ix0gNhdsp3onqAh8gTWjY";
   var queryURL =
     "https://maps.googleapis.com/maps/api/geocode/json?address=" +
