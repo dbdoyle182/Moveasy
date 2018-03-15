@@ -383,21 +383,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);                    
                 };
             if (week[j].day === "Thu") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Fri") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sat") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -413,21 +413,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Fri") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sat") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sun") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -443,21 +443,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sat") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sun") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Mon") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -473,21 +473,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Sun") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Mon") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Tue") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -503,21 +503,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Mon") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Tue") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Wed") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -533,21 +533,21 @@ var weatherFunc = function() {
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Tue") {
-                $("#day1").append(dailyWeather);
+                $("#day2").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Wed") {
-                $("#day1").append(dailyWeather);
+                $("#day3").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
                 dailyWeather.append(tempDay);
                 };
             if (week[j].day === "Thu") {
-                $("#day1").append(dailyWeather);
+                $("#day4").append(dailyWeather);
                 dailyWeather.append(dayName);
                 dailyWeather.append(dayMonth);
                 dailyWeather.append(skyType);
@@ -1011,7 +1011,7 @@ var widgeOnLoad = function() {
 // Functions that runs on page load
 $(function() {
   widgeOnLoad();
-  
+
 });
 // Functions that run on click of submit button
 $(document).on("click", "#submit-button", function(event) {
