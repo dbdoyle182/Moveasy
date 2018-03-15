@@ -639,8 +639,48 @@ var statePopulation = function(stateAbbreviation) {
       return item[1].toLowerCase() === longStateName.toLowerCase();
     })[0];
 
-        $("#name-of-city").text(stateInfoArray[1])
+        $("#name-of-city").text(stateInfoArray[1]);
         $("#pop").text(population);
+        
+        if (population < 1000){
+        $("#city-size-cat").text("village");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        };
+
+        if (population > 1000 && population < 20001){
+        $("#city-size-cat").text("Town");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        };
+
+        if (population > 20000 && population < 100001){
+        $("#city-size-cat").text("Large town");
+        $("size-symbol").attr('src', 'assets/images/city-icon-small')
+        };
+
+        if (population > 100000 && population < 300001){
+        $("#city-size-cat").text("City");
+        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        };
+
+        if (population > 300000 && population < 1000001){
+        $("#city-size-cat").text("Large city");
+        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        };
+
+        if (population > 1000000 && population < 3000001){
+        $("#city-size-cat").text("Metropolis");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
+
+        if (population > 3000000 && population < 10000001){
+        $("#city-size-cat").text("Conurbation");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
+
+        if (population > 10000000){
+        $("#city-size-cat").text("Megalopolis");
+        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        };
         //to add: conditions for displaying city size icon.
         
     });
