@@ -597,14 +597,14 @@ var weatherFunc = function() {
       currentDay.append(currentImg);
       currentDay.append(currentTemp);
       currentDay.append(currentFore);
- widget-work
+
 
 
     //   if (response.weather[0].icon === "01d" || response.weather[0].icon === "10d") {
     //       $("body").css({"background-image":"url(assets/images/city-cloudy-daytime.jpg"})
     //       console.log("clear skies")
     //   }
- master
+
     });
   });
 };
@@ -844,8 +844,6 @@ var statePopulation = function(stateAbbreviation, cityName) {
     })[0];
 
 
-    });
-
     var stateCode = stateInfoArray[stateInfoArray.length - 1];
     $.ajax({
       url: 'https://api.census.gov/data/2016/pep/population?get=POP,GEONAME&for=place:*&in=state:' + stateCode + '&DATE=9&key=8d04428cd17194c6f24d08b4e7bbb0dd9b0667e3',
@@ -870,45 +868,46 @@ var statePopulation = function(stateAbbreviation, cityName) {
         
         if (population < 1000){
         $("#city-size-cat").text("village");
-        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-small.png')
         };
 
         if (population > 1000 && population < 20001){
         $("#city-size-cat").text("Town");
-        $("size-symbol").attr('src', 'assets/images/city-icon-very-small')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-small.png')
         };
 
         if (population > 20000 && population < 100001){
         $("#city-size-cat").text("Large town");
-        $("size-symbol").attr('src', 'assets/images/city-icon-small')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-small.png')
         };
 
         if (population > 100000 && population < 300001){
         $("#city-size-cat").text("City");
-        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-large.png')
         };
 
         if (population > 300000 && population < 1000001){
         $("#city-size-cat").text("Large city");
-        $("size-symbol").attr('src', 'assets/images/city-icon-large')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-large.png')
         };
 
         if (population > 1000000 && population < 3000001){
         $("#city-size-cat").text("Metropolis");
-        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-large.png')
         };
 
         if (population > 3000000 && population < 10000001){
         $("#city-size-cat").text("Conurbation");
-        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-large.png')
         };
 
         if (population > 10000000){
         $("#city-size-cat").text("Megalopolis");
-        $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
+        $("#size-symbol").attr('src', 'assets/images/city-icon-very-large.png')
         };
     });  
 
+  });
 };
 // Function that creates the restaurant content
 
