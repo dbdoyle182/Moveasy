@@ -714,8 +714,6 @@ var statePopulation = function(stateAbbreviation, cityName) {
         $("size-symbol").attr('src', 'assets/images/city-icon-very-large')
         };
     });  
-  });
-
 
 };
 // Function that creates the restaurant content
