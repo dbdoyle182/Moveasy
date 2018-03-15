@@ -363,11 +363,12 @@ var weatherFunc = function () {
 // Function for the real estate widget
 var realEstate = function () {
     // Clears the real estate div
-    $("#realEstateDiv").empty();
+    // $("#realEstateDiv").empty();
+    $(".realty").empty();
     // Creates the header for the section dynamically
-    var realHeader = $("<h2>");
-    realHeader.text("Real Estate Listings")
-    $("#realEstateDiv").append(realHeader);
+    // var realHeader = $("<h2>");
+    // realHeader.text("Real Estate Listings")
+    // $("#realEstateDiv").append(realHeader);
     // Function that grabs the first letter of a string and capitalizes it
     var firstLet = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -452,17 +453,17 @@ var realEstate = function () {
         datatype: "jsonp"
     }).then(function(response) {
     // For loops that goes through each listing to gather information
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 5; i++) {
             var house = response.Listings[i];
             // Build the html that houses the selected content
-            var houseDiv = $("<div>");
-            houseDiv.addClass("house");
+            // var houseDiv = $("<div>");
+            // houseDiv.addClass("house");
             // console.log(house.ImageURLs[0]);
-            var houseImg = $("<img src=" + house.ImageURLs[0] + ">")
-            houseDiv.append(houseImg);
-            var houseInfo;
-            // console.log(house.Address);
-            // console.log("For: " + house.ListingType);
+            var houseImg = $("<img src=" + house.ImageURLs[0] + ">");
+            // houseDiv.append(houseImg);
+            // var houseInfo;
+            // // console.log(house.Address);
+            // // console.log("For: " + house.ListingType);
             if (house.ListingType === "Sale") {
                 // console.log(house.ListPrice + "$");
                 houseInfo = $("<p>" + house.Address + "<br> For: " + house.ListingType + "<br>" + house.ListPrice + "$ <br>" + "Listed by: " + house.ListOfficeName + "</p>")
@@ -474,10 +475,12 @@ var realEstate = function () {
             if (house.ListingType != "Rental" && house.ListingType != "Sale") {
                 houseInfo = $("<p>" + house.Address + "<br> For: Sale <br>" + house.ListPrice + "$<br>" + "Listed by: " + house.ListOfficeName + "</p>")
             }
-            // console.log("Listed by: " + house.ListOfficeName);
-            (houseDiv).append(houseInfo);
+            // // console.log("Listed by: " + house.ListOfficeName);
+            
+            $("#panel"+[i]).append(houseImg);
+            $("#panel"+[i]).prepend(houseInfo);
 
-            $("#realEstateDiv").append(houseDiv);
+            // $("#realEstateDiv").append(houseDiv);
 
             // console.log("------------")
         }
