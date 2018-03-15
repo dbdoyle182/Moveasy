@@ -1,4 +1,5 @@
-var trendCities = [{
+var trendCities = [
+  {
     city: "Boston",
     state: "MA"
   },
@@ -40,20 +41,18 @@ var trendCities = [{
   }
 ];
 
-
 //function to render city buttons
 function showCityBtn() {
   $(".trending-cities").empty();
 
   for (i = 0; i < trendCities.length; i++) {
     var trendCityBtn = $(
-      "<button type='button' class='hollow button' href='#'>" +
-      trendCities[i].city +
-      ", " +
-      trendCities[i].state +
-      "</button>"
+      "<button type='button' class='hollow button trendCityBtn' href='#'>" +
+        trendCities[i].city +
+        ", " +
+        trendCities[i].state +
+        "</button>"
     );
-    trendCityBtn.attr("id", "trendCityBtn")
     trendCityBtn.attr("data-city", trendCities[i].city);
     trendCityBtn.attr("data-state", trendCities[i].state);
     $(".trending-cities").append(trendCityBtn);
@@ -61,7 +60,7 @@ function showCityBtn() {
 }
 
 //click function to generate new fav city buttons based on user input
-$("#submit-button").click(function (event) {
+$("#submit-button").click(function(event) {
   event.preventDefault();
   var favCitiesSI = [];
   var favCitiesNSI = [];
@@ -70,18 +69,16 @@ $("#submit-button").click(function (event) {
 
   //if user is signed-in, print unique search buttons that aren't shown on sign-out
   if (user) {
-
-
     //if user is signed-out, print unique search buttons that aren't shown on sign-in
   } else {
     favCitiesNSI.push(submission);
     for (i = 0; i < favCitiesNSI.length; i++) {
       var favCityBtnNSI = $(
         "<button type='button' class='hollow button favBtnNSI' href='#'>" +
-        favCitiesNSI[i] +
-        ", " +
-        $("#state-input").val() +
-        "</button>"
+          favCitiesNSI[i] +
+          ", " +
+          $("#state-input").val() +
+          "</button>"
       );
       favCityBtnNSI.attr("data-city", submission);
       favCityBtnNSI.attr("data-state", $("#state-input").val());
@@ -89,9 +86,7 @@ $("#submit-button").click(function (event) {
       $(".fav-cities-notsi").append(favCityBtnNSI);
       $("#city-buttons-nsi").append(favCityBtnNSI2);
     }
-
   }
-
 });
 
 showCityBtn();
