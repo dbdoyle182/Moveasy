@@ -58,7 +58,7 @@ body {
   bottom: 5%;
   width: 100%;
 }
-
+ 
 .user-signed-in {
   font-weight: bold;
   text-align: center;
@@ -69,4 +69,12 @@ body {
   width: 100%;
   height: 400px;
   background-color: grey;
+}
+
+.currentWeather {
+  text-align: center;
+}
+.valStatus {
+  border-color: red;
+
 }
