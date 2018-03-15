@@ -29,7 +29,7 @@
             <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
 
                 <!-- Close button -->
-                <button class="button" aria-label="Close menu" type="button" data-close>
+                <button class="button expanded" aria-label="Close menu" type="button" data-close>
                     <span aria-hidden="true">Close</span>
                 </button>
                 <div class="cell user-signed-in">
@@ -193,8 +193,12 @@
             <div class="off-canvas-content" data-off-canvas-content>
                 <div class="grid-container fluid">
                     <div class="grid-x grid-margin-x">
-                        <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
-
+                        <div class="columns small-6 right" data-sticky-container>
+                        <div class="sticky" data-sticky data-margin-top="0">
+                            <button type="button" class="button" data-toggle="offCanvasLeft" aria-expanded="false" aria-controls="offCanvasLeft">Open Menu</button>
+                        </div>
+                        </div>
+                        
                         <div class="cell">
                             <div class="row">
                                 <div class="columns">
@@ -276,7 +280,7 @@
                                             <div class="cell">
                                                 <div class="card">
                                                     <div class="card-section">
-                                                        <h4>Local Eats</h4>
+                                                        <h4>Top Rated Local Eats</h4>
                                                         <div class="orbit" role="region" aria-label="Resteraunts" data-orbit>
                                                             <div class="orbit-wrapper">
                                                                 <div class="orbit-controls">
