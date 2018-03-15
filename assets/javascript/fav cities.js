@@ -1,4 +1,4 @@
-$("#submit-button").click(function (event) {
+$("#submit-button").click(function(event) {
   event.preventDefault();
 
   if (!user) {
@@ -9,7 +9,7 @@ $("#submit-button").click(function (event) {
   var uid = user.uid;
   var myCitiesRef = database.ref("/" + uid + "/favCities");
 
-  myCitiesRef.once("value", function (snap) {
+  myCitiesRef.once("value", function(snap) {
     // get current favs from firebase
     var favs = snap.val();
 
@@ -19,8 +19,7 @@ $("#submit-button").click(function (event) {
       favs = [];
     }
 
-    var cityName = $("#city-input").val() +
-      ", " + $("#state-input").val();
+    var cityName = $("#city-input").val() + ", " + $("#state-input").val();
     console.log(cityName);
     favs.push(cityName);
     console.log(favs);
@@ -28,16 +27,21 @@ $("#submit-button").click(function (event) {
     myCitiesRef.set(favs);
     $(".fav-cities-si").empty();
     for (i = 0; i < favs.length; i++) {
-
       var favCity = favs[i].split(", ")[0];
       var favState = favs[i].split(", ")[1];
       var savedCityBtn = $(
-        "<button type='button' class='hollow button favBtnSI' href='#' data-city='" + favCity + "' data-state='" + favState + "'>" +
-        favs[i] + "</button>");
+        "<button type='button' class='hollow button favBtnSI' href='#' data-city='" +
+          favCity +
+          "' data-state='" +
+          favState +
+          "'>" +
+          favs[i] +
+          "</button>"
+      );
 
-      // savedCityBtn.attr("data-city", $("#city-input").val());
-      // savedCityBtn.attr("data-state", $("#state-input").val());
+      var savedCityBtn2 = savedCityBtn.clone();
       $(".fav-cities-si").append(savedCityBtn);
+      $("#city-buttons-si").append(savedCityBtn2);
     }
-  })
-})
+  });
+});
