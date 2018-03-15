@@ -363,6 +363,7 @@ var weatherFunc = function() {
     }).then(function(response) {
       var imgLink =
         "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+
       var todayDate = moment().format("ddd");
       var todayMonth = moment().format("MMM Do");
       var todayTemp = Math.floor(response.main.temp);
@@ -394,6 +395,10 @@ var weatherFunc = function() {
       currentDay.append(currentImg);
       currentDay.append(currentTemp);
       currentDay.append(currentFore);
+    //   if (response.weather[0].icon === "01d" || response.weather[0].icon === "10d") {
+    //       $("body").css({"background-image":"url(assets/images/city-cloudy-daytime.jpg"})
+    //       console.log("clear skies")
+    //   }
     });
   });
 };
