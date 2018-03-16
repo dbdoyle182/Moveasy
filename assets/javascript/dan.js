@@ -300,7 +300,7 @@ var weatherFunc = function() {
           // console.log(Math.floor(dailyTemp));
           var dailyWeather = $("<div>");
           var dayName = $("<p>");
-          var dayMonth = $("<p>");
+          var dayMonth = $("<p id='date'>");
           var tempDay = $("<h4 id='temp'>");
           var skyType = $("<img>");
           dayName.text(week[j].day);
@@ -761,6 +761,7 @@ var realEstate = function() {
       }
       // // console.log("Listed by: " + house.ListOfficeName);
 
+      // $("#panel" + [i]).css('background-image', 'url(' + house.ImageURLs[0] + ')')
       $("#panel" + [i]).append(houseImg);
       $("#panel" + [i]).prepend(houseInfo);
 

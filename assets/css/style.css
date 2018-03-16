@@ -31,7 +31,7 @@ h4 {
 }
 
 body {
-  background-image: url("https://picturefordesktop.com/wp-content/uploads/2017/03/Chichago-hd-photos-American-cities-City-background-800x600.jpg");
+  background-image: url("../images/city-bg.jpg");
   background-size: cover;
 }
 
@@ -109,16 +109,23 @@ footer {
 }
 
 .forecast {
-  border-right: 2px solid slategrey;
-  border-left: 2px solid slategrey;
+  border-right: 1px solid rgba(107, 166, 224, 0.993);
+  border-left: 1px solid rgba(107, 166, 224, 0.993);
   padding: 0 4px;
   text-align: center;
-  
+}
+
+#date {
+  border: 1px solid rgba(107, 166, 224, 0.993);
+  border-radius: 2px;
 }
 
 @media screen and (max-width:900px){
   #temp {
     font-size: 22px;
+  }
+  #date {
+    border:none;
   }
 }
 
@@ -143,5 +150,9 @@ footer {
 
   #temp {
     font-size: 22px;
+  }
+
+  #date {
+    border:none;
   }
 }
