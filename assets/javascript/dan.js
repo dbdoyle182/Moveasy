@@ -301,7 +301,7 @@ var weatherFunc = function() {
           var dailyWeather = $("<div>");
           var dayName = $("<p>");
           var dayMonth = $("<p>");
-          var tempDay = $("<h4>");
+          var tempDay = $("<h4 id='temp'>");
           var skyType = $("<img>");
           dayName.text(week[j].day);
           dayMonth.text(week[j].date);

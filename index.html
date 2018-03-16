@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="cell small-3">
-                                <label>Select State
+                                <label>State
                                     <select id="state-input">
                                         <option value="AL">AL</option>
                                         <option value="AK">AK</option>
@@ -277,22 +277,22 @@
 
                                                             <div class="grid-x grid-padding-x">
                 
-                                                                <div class="cell medium-3" id="currentDay">
+                                                                <div class="cell small-3 forecast" id="currentDay">
                                                                     
                                                                 </div>
-                                                                <div class="cell medium-2" id="day1">
+                                                                <div class="cell small-2 forecast" id="day1">
                                                                     
                                                                 </div>
-                                                                <div class="cell medium-2" id="day2">
+                                                                <div class="cell small-2 forecast" id="day2">
                                                                     
                                                                 </div>
-                                                                <div class="cell medium-2" id="day3">
+                                                                <div class="cell small-2 forecast" id="day3">
                                                                     
                                                                 </div>
-                                                                <div class="cell medium-2" id="day4">
+                                                                <div class="cell small-2 forecast" id="day4">
                                                                     
                                                                 </div>
-                                                                <div class="cell medium-1">
+                                                                <div class="cell small-1">
                                                                     
                                                                 </div>
                                                                 
@@ -307,7 +307,7 @@
                                                 <div class="card">
                                                     <div class="card-section">
                                                         <h4>Top Rated Local Eats</h4>
-                                                        <div class="orbit" role="region" aria-label="Resteraunts" data-orbit>
+                                                        <div class="orbit" role="region" aria-label="Restaurants" data-orbit>
                                                             <div class="orbit-wrapper">
                                                                 <div class="orbit-controls">
                                                                     <button class="orbit-previous">
@@ -319,31 +319,31 @@
                                                                     <li class="is-active orbit-slide">
                                                                         <figure class="orbit-figure">
                                                                             <img class="orbit-image rest1" src="https://placehold.it/1200x600/999?text=Slide-1" alt="Sorry, Zomato API couldn't find resteraunt info.">
-                                                                            <figcaption class="orbit-caption rest-cap1">Sorry, Zomato API couldn't find resteraunt info.</figcaption>
+                                                                            <figcaption class="orbit-caption rest-cap1">Sorry, Zomato API couldn't find restaurant info.</figcaption>
                                                                         </figure>
                                                                     </li>
                                                                     <li class="orbit-slide">
                                                                         <figure class="orbit-figure">
-                                                                            <img class="orbit-image rest2" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Sorry, Zomato API couldn't find resteraunt info.">
-                                                                            <figcaption class="orbit-caption rest-cap2">Sorry, Zomato API couldn't find resteraunt info.</figcaption>
+                                                                            <img class="orbit-image rest2" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Sorry, Zomato API couldn't find restaurant info.">
+                                                                            <figcaption class="orbit-caption rest-cap2">Sorry, Zomato API couldn't find restaurant info.</figcaption>
                                                                         </figure>
                                                                     </li>
                                                                     <li class="orbit-slide">
                                                                         <figure class="orbit-figure">
-                                                                            <img class="orbit-image rest3" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Sorry, Zomato API couldn't find resteraunt info.">
-                                                                            <figcaption class="orbit-caption rest-cap3">Sorry, Zomato API couldn't find resteraunt info.</figcaption>
+                                                                            <img class="orbit-image rest3" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Sorry, Zomato API couldn't find restaurant info.">
+                                                                            <figcaption class="orbit-caption rest-cap3">Sorry, Zomato API couldn't find restaurant info.</figcaption>
                                                                         </figure>
                                                                     </li>
                                                                     <li class="orbit-slide">
                                                                         <figure class="orbit-figure">
-                                                                            <img class="orbit-image rest4" src="https://placehold.it/1200x600/666?text=Slide-4" alt="Sorry, Zomato API couldn't find resteraunt info.">
-                                                                            <figcaption class="orbit-caption rest-cap4">Sorry, Zomato API couldn't find resteraunt info.</figcaption>
+                                                                            <img class="orbit-image rest4" src="https://placehold.it/1200x600/666?text=Slide-4" alt="Sorry, Zomato API couldn't find restaurant info.">
+                                                                            <figcaption class="orbit-caption rest-cap4">Sorry, Zomato API couldn't find restaurant info.</figcaption>
                                                                         </figure>
                                                                     </li>
                                                                     <li class="orbit-slide">
                                                                         <figure class="orbit-figure">
-                                                                            <img class="orbit-image rest5" src="https://placehold.it/1200x600/666?text=Slide-5" alt="Sorry, Zomato API couldn't find resteraunt info.">
-                                                                            <figcaption class="orbit-caption rest-cap5">Sorry, Zomato API couldn't find resteraunt info.</figcaption>
+                                                                            <img class="orbit-image rest5" src="https://placehold.it/1200x600/666?text=Slide-5" alt="Sorry, Zomato API couldn't find restaurant info.">
+                                                                            <figcaption class="orbit-caption rest-cap5">Sorry, Zomato API couldn't find restaurant info.</figcaption>
                                                                         </figure>
                                                                     </li>
                                                                 </ul>
@@ -427,6 +427,7 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="signInPassword" class="form-control" placeholder="Password" required>
             <button class="button expanded signIn" type="submit">Sign In</button>
+            <button class="button expanded secondary close" data-close type="exit-window">Close</button>
         </form>
     </div>
 
@@ -463,6 +464,9 @@
             </div>
             <div class="cell">
                 <button class="button expanded signUp" data-close type="submit">Sign Up</button>
+            </div>
+            <div class="cell">
+            <button class="button expanded secondary close" data-close type="close">Close</button>
             </div>
         </form>
     </div>

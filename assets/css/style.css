@@ -100,10 +100,48 @@ footer {
 
 #pop-caption {
   font-size: 28px;
-  line-height: 18px;
+  line-height: 28px;
   margin-top: 10px;
 }
 
 .card {
   border-radius: 12px;
+}
+
+.forecast {
+  border-right: 2px solid slategrey;
+  border-left: 2px solid slategrey;
+  padding: 0 4px;
+  text-align: center;
+  
+}
+
+@media screen and (max-width:900px){
+  #temp {
+    font-size: 22px;
+  }
+}
+
+
+@media screen and (max-width:400px){
+
+  h5 {
+    font-family: 'Lato', sans-serif;
+    font-size: 38px;
+    color: white;
+    position: static;
+  }
+
+  .position-left {
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    -webkit-transform: translateX(-280px);
+    transform: translateX(-280px);
+  }
+
+  #temp {
+    font-size: 22px;
+  }
 }
