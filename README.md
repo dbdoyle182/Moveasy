@@ -35,7 +35,7 @@ As of May 2018 our privileges for the real estate API are closed down. Until ano
 
 ## Authors
 
-See the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See the list of [contributors](https://github.com/dbdoyle182/Moveasy/contributors) who participated in this project.
 
 ## License
 
