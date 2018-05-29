@@ -2,6 +2,8 @@
 
 Moveasy was developed to help individuals who are looking to move to a new area. The application pulls data from mulitple API sources to create an easy interface that supplies the data that we considered relevant. This is an entirely front end application that utilizes Firebase's realtime database to store any data and maintain user authentication
 
+![Moveasy Gif](/assets/images/moveasy.gif)
+
 ## Getting Started
 
 Here is the link to our deployed application: [Moveasy](https://dbdoyle182.github.io/Moveasy/)
