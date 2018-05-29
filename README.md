@@ -25,12 +25,12 @@ As of May 2018 our privileges for the real estate API are closed down. Until ano
 
 ## Built With
 
-* [Firebase]() - The real time database
-* [Zomato]() - Dependency Management
-* [Google Maps]() - Used to generate RSS Feeds
-* [Google Geolocation]() - Used to set a center location for searches
-* [Open Weather API]() - Provides the weather forecast for the location
-* [Foundation CSS]() - Provides the different CSS components
+* [Firebase](https://firebase.google.com/) - The real time database
+* [Zomato](https://developers.zomato.com/api#) - Dependency Management
+* [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial) - Used to generate RSS Feeds
+* [Google Geolocation](https://developers.google.com/maps/documentation/geocoding/start) - Used to set a center location for searches
+* [Open Weather API](https://www.openweathermap.org/api) - Provides the weather forecast for the location
+* [Foundation CSS](https://foundation.zurb.com/) - Provides the different CSS components
 
 
 ## Authors
